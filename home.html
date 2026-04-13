@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+
   <title>Master's Gaming Hub</title>
 
   <style>
@@ -10,92 +11,84 @@
       font-family: Arial, sans-serif;
       background: #1e90ff;
       color: white;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
     }
 
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
       background: #003f88;
-      padding: 15px;
+      padding: 20px;
       text-align: center;
-      font-size: 26px;
+      font-size: 32px;
       font-weight: bold;
-      z-index: 2;
+      letter-spacing: 1px;
     }
 
-    #sidebar {
-      margin-top: 60px;
-      width: 280px;
+    #search-container {
+      text-align: center;
+      margin: 20px;
+    }
+
+    #search {
+      width: 60%;
+      max-width: 500px;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .section-title {
+      font-size: 26px;
+      margin: 20px;
+      border-left: 5px solid white;
+      padding-left: 10px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .game-card {
       background: #005bbb;
-      padding: 10px;
-      overflow-y: auto;
-      box-sizing: border-box;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid #003f88;
+      transition: 0.2s;
     }
 
-    #sidebar h2 {
-      font-size: 20px;
-      margin: 10px 0;
-      border-left: 4px solid white;
-      padding-left: 8px;
-    }
-
-    .game-button {
-      width: 100%;
-      text-align: left;
+    .game-card:hover {
+      transform: scale(1.05);
       background: #0077ff;
+    }
+
+    button {
+      background: none;
       border: none;
       color: white;
-      padding: 8px 10px;
-      margin: 4px 0;
-      border-radius: 6px;
+      font-size: 20px;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 15px;
     }
 
-    .game-button:hover {
-      background: #3399ff;
-    }
-
-    #main {
-      margin-top: 60px;
-      flex: 1;
-      background: #003f88;
-      padding: 10px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
+    button:hover {
+      text-decoration: underline;
     }
 
     #gameFrameContainer {
-      flex: 1;
-      background: black;
-      border-radius: 8px;
-      overflow: hidden;
+      width: 100%;
+      height: 600px;
+      display: none;
+      margin-top: 20px;
     }
 
     #gameFrame {
       width: 100%;
       height: 100%;
       border: none;
-      background: black;
-    }
-
-    #search {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 8px;
-      border-radius: 6px;
-      border: none;
-      font-size: 14px;
-    }
-
-    .game-item {
-      display: block;
     }
   </style>
 </head>
@@ -103,97 +96,85 @@
 
 <header>Master's Gaming Hub</header>
 
-<div id="sidebar">
-  <input id="search" type="text" placeholder="Search games...">
+<div id="search-container">
+  <input type="text" id="search" placeholder="Search for a game...">
+</div>
 
-  <h2>Board & Strategy</h2>
-  <div class="game-item">
-    <button class="game-button" data-name="Goose Game"
-      onclick="openGame('https://toytheater.com/goose-game/')">
-      Goose Game
-    </button>
-  </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Checkers"
-      onclick="openGame('https://toytheater.com/checkers/')">
-      Checkers
-    </button>
-  </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Chess"
-      onclick="openGame('https://toytheater.com/chess/')">
-      Chess
-    </button>
-  </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Connect 4"
-      onclick="openGame('https://toytheater.com/connect-4/')">
-      Connect 4
-    </button>
-  </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Reversi"
-      onclick="openGame('https://toytheater.com/reversi/')">
-      Reversi
-    </button>
+<!-- CATEGORY 1 -->
+<h2 class="section-title">🎮 Board & Strategy Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Goose Game">
+    <button onclick="openGame('https://toytheater.com/goose-game/')">Goose Game</button>
   </div>
 
-  <h2>Arcade & Action</h2>
-  <div class="game-item">
-    <button class="game-button" data-name="Space Race"
-      onclick="openGame('https://toytheater.com/space-race/')">
-      Space Race
-    </button>
+  <div class="game-card" data-name="Checkers">
+    <button onclick="openGame('https://toytheater.com/checkers/')">Checkers</button>
   </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Brick Breaker"
-      onclick="openGame('https://toytheater.com/brick-breaker/')">
-      Brick Breaker
-    </button>
+
+  <div class="game-card" data-name="Chess">
+    <button onclick="openGame('https://toytheater.com/chess/')">Chess</button>
   </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Car Race"
-      onclick="openGame('https://toytheater.com/car-race/')">
-      Car Race
-    </button>
+
+  <div class="game-card" data-name="Connect 4">
+    <button onclick="openGame('https://toytheater.com/connect-4/')">Connect 4</button>
   </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Maze Game"
-      onclick="openGame('https://toytheater.com/maze-game/')">
-      Maze Game
-    </button>
-  </div>
-  <div class="game-item">
-    <button class="game-button" data-name="Platform Game"
-      onclick="openGame('https://toytheater.com/platform-game/')">
-      Platform Game
-    </button>
+
+  <div class="game-card" data-name="Reversi">
+    <button onclick="openGame('https://toytheater.com/reversi/')">Reversi</button>
   </div>
 
 </div>
 
-<div id="main">
-  <div id="gameFrameContainer">
-    <iframe id="gameFrame" src="https://toytheater.com/goose-game/"></iframe>
+<!-- CATEGORY 2 -->
+<h2 class="section-title">⚡ Arcade & Action Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Space Race">
+    <button onclick="openGame('https://toytheater.com/space-race/')">Space Race</button>
   </div>
+
+  <div class="game-card" data-name="Brick Breaker">
+    <button onclick="openGame('https://toytheater.com/brick-breaker/')">Brick Breaker</button>
+  </div>
+
+  <div class="game-card" data-name="Car Race">
+    <button onclick="openGame('https://toytheater.com/car-race/')">Car Race</button>
+  </div>
+
+  <div class="game-card" data-name="Maze Game">
+    <button onclick="openGame('https://toytheater.com/maze-game/')">Maze Game</button>
+  </div>
+
+  <div class="game-card" data-name="Platform Game">
+    <button onclick="openGame('https://toytheater.com/platform-game/')">Platform Game</button>
+  </div>
+
+</div>
+
+<!-- GAME VIEWER -->
+<div id="gameFrameContainer">
+  <iframe id="gameFrame"></iframe>
 </div>
 
 <script>
-  function openGame(url) {
-    document.getElementById('gameFrame').src = url;
-  }
+  const searchInput = document.getElementById("search");
+  const gameCards = document.querySelectorAll(".game-card");
 
-  const searchInput = document.getElementById('search');
-  const gameItems = document.querySelectorAll('.game-item');
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
 
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.toLowerCase();
-    gameItems.forEach(item => {
-      const btn = item.querySelector('.game-button');
-      const name = btn.getAttribute('data-name').toLowerCase();
-      item.style.display = name.includes(q) ? 'block' : 'none';
+    gameCards.forEach(card => {
+      const name = card.getAttribute("data-name").toLowerCase();
+      card.style.display = name.includes(query) ? "block" : "none";
     });
   });
+
+  function openGame(url) {
+    document.getElementById("gameFrameContainer").style.display = "block";
+    document.getElementById("gameFrame").src = url;
+    window.scrollTo(0, document.body.scrollHeight);
+  }
 </script>
 
 </body>
