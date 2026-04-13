@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Master's Gaming Hub</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('abstract-vibrant-colors-pattern-background-design-very-useful-brochures-banners-high-dimension-printing-like-billboards-250078093.webp');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: white;
+      overflow-y: scroll;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+
+    #search-container {
+      text-align: center;
+      margin: 20px;
+    }
+
+    #search {
+      width: 60%;
+      max-width: 500px;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .section-title {
+      font-size: 26px;
+      margin: 20px;
+      border-left: 5px solid white;
+      padding-left: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      backdrop-filter: blur(4px);
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .game-card {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(4px);
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+      background: black;
+    }
+
+    .game-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>Master's Gaming Hub</header>
+
+<div id="search-container">
+  <input type="text" id="search" placeholder="Search for a game...">
+</div>
+
+<script>
+  function filterGames() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const cards = document.querySelectorAll(".game-card");
+
+    cards.forEach(card => {
+      const name = card.getAttribute("data-name").toLowerCase();
+      card.style.display = name.includes(query) ? "block" : "none";
+    });
+  }
+
+  document.getElementById("search").addEventListener("input", filterGames);
+</script>
+
+<!-- 🚗 CAR GAMES -->
+<h2 class="section-title">🚗 Car Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Car Race">
+    <div class="game-title">Car Race</div>
+    <iframe src="https://toytheater.com/car-race/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Space Race">
+    <div class="game-title">Space Race</div>
+    <iframe src="https://toytheater.com/space-race/"></iframe>
+  </div>
+
+</div>
+
+<!-- 🏀 SPORTS GAMES -->
+<h2 class="section-title">🏀 Sports Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Penalty Kick">
+    <div class="game-title">Penalty Kick</div>
+    <iframe src="https://toytheater.com/soccer/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Basketball Shoot">
+    <div class="game-title">Basketball Shoot</div>
+    <iframe src="https://toytheater.com/basketball/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Mini Golf">
+    <div class="game-title">Mini Golf</div>
+    <iframe src="https://toytheater.com/golf/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Bowling">
+    <div class="game-title">Bowling</div>
+    <iframe src="https://toytheater.com/bowling/"></iframe>
+  </div>
+
+</div>
+
+<!-- 🎮 ARCADE GAMES -->
+<h2 class="section-title">🎮 Arcade Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Brick Breaker">
+    <div class="game-title">Brick Breaker</div>
+    <iframe src="https://toytheater.com/brick-breaker/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Platform Game">
+    <div class="game-title">Platform Game</div>
+    <iframe src="https://toytheater.com/platform-game/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Maze Game">
+    <div class="game-title">Maze Game</div>
+    <iframe src="https://toytheater.com/maze-game/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Bubble Pop">
+    <div class="game-title">Bubble Pop</div>
+    <iframe src="https://toytheater.com/bubble-pop/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Cannon Ball">
+    <div class="game-title">Cannon Ball</div>
+    <iframe src="https://toytheater.com/cannon-ball/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Falling Blocks">
+    <div class="game-title">Falling Blocks</div>
+    <iframe src="https://toytheater.com/falling-blocks/"></iframe>
+  </div>
+
+</div>
+
+<!-- 👾 RETRO GAMES -->
+<h2 class="section-title">👾 Retro Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Snake">
+    <div class="game-title">Snake</div>
+    <iframe src="https://toytheater.com/snake/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Retro Maze">
+    <div class="game-title">Retro Maze</div>
+    <iframe src="https://toytheater.com/maze-game/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Retro Shooter">
+    <div class="game-title">Retro Shooter</div>
+    <iframe src="https://toytheater.com/space-race/"></iframe>
+  </div>
+
+</div>
+
+<!-- 🧠 STRATEGY GAMES -->
+<h2 class="section-title">🧠 Strategy Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Reversi">
+    <div class="game-title">Reversi</div>
+    <iframe src="https://toytheater.com/reversi/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Checkers">
+    <div class="game-title">Checkers</div>
+    <iframe src="https://toytheater.com/checkers/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Chess">
+    <div class="game-title">Chess</div>
+    <iframe src="https://toytheater.com/chess/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Connect 4">
+    <div class="game-title">Connect 4</div>
+    <iframe src="https://toytheater.com/connect-4/"></iframe>
+  </div>
+
+</div>
+
+<!-- 🎲 BOARD GAMES -->
+<h2 class="section-title">🎲 Board Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Goose Game">
+    <div class="game-title">Goose Game</div>
+    <iframe src="https://toytheater.com/goose-game/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Ludo">
+    <div class="game-title">Ludo</div>
+    <iframe src="https://toytheater.com/ludo/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Mancala">
+    <div class="game-title">Mancala</div>
+    <iframe src="https://toytheater.com/mancala/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Tic Tac Toe">
+    <div class="game-title">Tic Tac Toe</div>
+    <iframe src="https://toytheater.com/tic-tac-toe/"></iframe>
+  </div>
+
+</div>
+
+<!-- 🧩 PUZZLE GAMES -->
+<h2 class="section-title">🧩 Puzzle Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Tangrams">
+    <div class="game-title">Tangrams</div>
+    <iframe src="https://toytheater.com/tangrams/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Pattern Blocks">
+    <div class="game-title">Pattern Blocks</div>
+    <iframe src="https://toytheater.com/pattern-blocks/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Jigsaw Puzzle">
+    <div class="game-title">Jigsaw Puzzle</div>
+    <iframe src="https://toytheater.com/jigsaw-puzzle/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Sliding Puzzle">
+    <div class="game-title">Sliding Puzzle</div>
+    <iframe src="https://toytheater.com/sliding-puzzle/"></iframe>
+  </div>
+
+  <div class="game-card" data-name="Memory Match">
+    <div class="game-title">Memory Match</div>
+    <iframe src="https://toytheater.com/memory/"></iframe>
+  </div>
+
+</div>
+
+</body>
+</html>
