@@ -71,6 +71,22 @@
       margin-bottom: 10px;
     }
 
+    .fullscreen-btn {
+      display: block;
+      margin: 0 auto 10px auto;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #1e88e5;
+      color: white;
+    }
+
+    .fullscreen-btn:hover {
+      background: #1565c0;
+    }
+
     iframe {
       width: 100%;
       height: auto;
@@ -101,109 +117,179 @@
   }
 
   document.getElementById("search").addEventListener("input", filterGames);
+
+  function openFullscreen(btn) {
+    const iframe = btn.parentElement.querySelector("iframe");
+    if (!iframe) return;
+    if (iframe.requestFullscreen) iframe.requestFullscreen();
+    else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+    else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
+  }
 </script>
 
-<!-- ⭐ FAST ACTION GAMES (ALL WORKING) ⭐ -->
-<h2 class="section-title">⚡ Fast Action Games</h2>
+<!-- 🚗 ACTION / RACING (includes Slope + Two Player Slope + Tag) -->
+<h2 class="section-title">🚗 Action / Racing</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Dino Run">
-    <div class="game-title">Dino Run</div>
-    <iframe src="https://chromedino.com/dino/" allowfullscreen></iframe>
+  <div class="game-card" data-name="Slope">
+    <div class="game-title">Slope</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://example.com/slope/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Two Player Slope">
+    <div class="game-title">Two Player Slope</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://example.com/two-player-slope/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Tag">
+    <div class="game-title">Tag</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://example.com/tag/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="HexGL">
     <div class="game-title">HexGL (Futuristic Racer)</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://hexgl.bkcore.com/play/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Tunnel Rush">
     <div class="game-title">Tunnel Rush</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/tunnel-rush/" allowfullscreen></iframe>
+  </div>
+
+</div>
+
+<!-- 🎮 ARCADE I -->
+<h2 class="section-title">🎮 Arcade I</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Dino Run">
+    <div class="game-title">Dino Run</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://chromedino.com/dino/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Space Invaders">
     <div class="game-title">Space Invaders</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://jakesgordon.com/space-invaders/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Asteroids">
     <div class="game-title">Asteroids</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://jakesgordon.com/asteroids/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Breakout">
     <div class="game-title">Breakout</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/breakout/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Pacman">
     <div class="game-title">Pac-Man</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://pacman.platzh1rsch.ch/" allowfullscreen></iframe>
   </div>
 
+</div>
+
+<!-- 🎮 ARCADE II -->
+<h2 class="section-title">🎮 Arcade II</h2>
+<div class="game-grid">
+
   <div class="game-card" data-name="Tetris">
     <div class="game-title">Tetris</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://tetris.com/play-tetris" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Snake">
     <div class="game-title">Snake</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://playsnake.org/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Flappy Bird">
     <div class="game-title">Flappy Bird</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://flappybird.io/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Cube Runner">
     <div class="game-title">Cube Runner</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/cube-runner/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Jetpack Joyride Clone">
     <div class="game-title">Jetpack Joyride Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/jetpack/" allowfullscreen></iframe>
   </div>
 
+</div>
+
+<!-- 🎮 ARCADE III -->
+<h2 class="section-title">🎮 Arcade III</h2>
+<div class="game-grid">
+
   <div class="game-card" data-name="Geometry Dash Clone">
     <div class="game-title">Geometry Dash Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://geometry-dash.io/fullscreen/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Run Game">
     <div class="game-title">Run Game</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/run/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Helix Jump">
     <div class="game-title">Helix Jump</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/helix-jump/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Stack">
     <div class="game-title">Stack</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/stack/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Knife Hit">
     <div class="game-title">Knife Hit</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/knife-hit/" allowfullscreen></iframe>
   </div>
 
+</div>
+
+<!-- 🎮 ARCADE IV -->
+<h2 class="section-title">🎮 Arcade IV</h2>
+<div class="game-grid">
+
   <div class="game-card" data-name="Ball Fall 3D">
     <div class="game-title">Ball Fall 3D</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/ball-fall-3d/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Slope Clone">
     <div class="game-title">Slope Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/slope/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Slope 2 Clone">
     <div class="game-title">Slope 2 Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
     <iframe src="https://games-online.github.io/slope-2/" allowfullscreen></iframe>
   </div>
 
