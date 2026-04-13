@@ -80,6 +80,7 @@
       border: 2px solid #0ff;
       border-radius: 8px;
       overflow: hidden;
+      position: relative;
     }
 
     #viewer iframe {
@@ -88,7 +89,7 @@
       border: none;
     }
 
-    #closeBtn {
+    #fullscreenBtn, #closeBtn {
       margin-top: 10px;
       padding: 10px 20px;
       font-size: 16px;
@@ -97,6 +98,7 @@
       background: #0ff;
       color: #000;
       cursor: pointer;
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -140,9 +142,12 @@
 
 <div id="viewer-wrapper">
   <div id="viewer-title"></div>
+
   <div id="viewer">
     <iframe id="gameFrame"></iframe>
   </div>
+
+  <button id="fullscreenBtn">Fullscreen</button>
   <button id="closeBtn">Close Game</button>
 </div>
 
@@ -153,6 +158,7 @@
   const viewerTitle = document.getElementById("viewer-title");
   const gameFrame = document.getElementById("gameFrame");
   const closeBtn = document.getElementById("closeBtn");
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
 
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
@@ -176,6 +182,12 @@
   closeBtn.addEventListener("click", () => {
     gameFrame.src = "";
     viewerWrapper.style.display = "none";
+  });
+
+  fullscreenBtn.addEventListener("click", () => {
+    if (gameFrame.requestFullscreen) {
+      gameFrame.requestFullscreen();
+    }
   });
 </script>
 
