@@ -6,7 +6,7 @@
   <!-- Tab Title -->
   <title>Power School</title>
 
-  <!-- Guaranteed-working blue favicon -->
+  <!-- Blue Square Favicon -->
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/google/material-design-icons/master/src/core/blue600.png">
 
   <style>
@@ -137,8 +137,11 @@
     <button onclick="openGame('https://drivemad.org/')">Drive Mad</button>
   </div>
 
+  <!-- FIXED: Drift Boss now opens in a new tab (MathPlayground blocks embedding) -->
   <div class="game-card" data-name="Drift Boss">
-    <button onclick="openGame('https://www.mathplayground.com/drift_boss.html')">Drift Boss</button>
+    <button onclick="window.open('https://www.mathplayground.com/drift_boss.html', '_blank')">
+      Drift Boss (School Safe)
+    </button>
   </div>
 
   <div class="game-card" data-name="Hill Climb Racing">
