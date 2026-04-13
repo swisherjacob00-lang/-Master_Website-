@@ -9,17 +9,25 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #1e90ff;
+      background-image: url('YOUR_IMAGE_FILE.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       color: white;
+      overflow-y: scroll;
     }
 
     header {
-      background: #003f88;
+      background: rgba(0, 0, 0, 0.6);
       padding: 20px;
       text-align: center;
       font-size: 32px;
       font-weight: bold;
       letter-spacing: 1px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
     }
 
     #search-container {
@@ -42,6 +50,9 @@
       margin: 20px;
       border-left: 5px solid white;
       padding-left: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      backdrop-filter: blur(4px);
     }
 
     .game-grid {
@@ -52,18 +63,19 @@
     }
 
     .game-card {
-      background: #005bbb;
+      background: rgba(0, 0, 0, 0.55);
       padding: 15px;
       border-radius: 10px;
       text-align: center;
-      border: 2px solid #003f88;
+      border: 2px solid rgba(255, 255, 255, 0.3);
       transition: 0.2s;
       cursor: pointer;
+      backdrop-filter: blur(4px);
     }
 
     .game-card:hover {
       transform: scale(1.05);
-      background: #0077ff;
+      background: rgba(0, 0, 0, 0.75);
     }
 
     .game-card span {
@@ -74,14 +86,16 @@
     #gameFrameContainer {
       width: 100%;
       height: 600px;
-      display: none;
       margin-top: 20px;
+      display: block;
     }
 
     #gameFrame {
       width: 100%;
       height: 100%;
       border: none;
+      border-radius: 10px;
+      background: black;
     }
   </style>
 </head>
@@ -147,7 +161,7 @@
 
 <!-- GAME VIEWER -->
 <div id="gameFrameContainer">
-  <iframe id="gameFrame"></iframe>
+  <iframe id="gameFrame" src="https://toytheater.com/goose-game/"></iframe>
 </div>
 
 <script>
@@ -164,9 +178,7 @@
   });
 
   function openGame(url) {
-    document.getElementById("gameFrameContainer").style.display = "block";
     document.getElementById("gameFrame").src = url;
-    window.scrollTo(0, document.body.scrollHeight);
   }
 </script>
 
