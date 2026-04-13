@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Master's Gaming Hub</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
 
+  <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #232526, #414345);
+      background: linear-gradient(135deg, #0d1b2a, #1b263b, #1e3a5f);
       color: white;
     }
 
@@ -96,7 +93,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       z-index: 100;
       justify-content: center;
       align-items: center;
@@ -145,295 +142,310 @@
   <input type="text" id="search" placeholder="Search for a game...">
 </div>
 
-<!-- 🚗 CAR GAMES -->
+<script>
+  function filterGames() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const cards = document.querySelectorAll(".game-card");
+
+    cards.forEach(card => {
+      const name = card.getAttribute("data-name").toLowerCase();
+      card.style.display = name.includes(query) ? "block" : "none";
+    });
+  }
+
+  document.getElementById("search").addEventListener("input", filterGames);
+</script>
+
+<!-- ========================= -->
+<!-- 🚗 CAR GAMES (5) -->
+<!-- ========================= -->
 <h2 class="section-title">🚗 Car Games</h2>
 <div class="game-grid">
+
   <div class="game-card" data-name="Neon Race" data-url="https://example.com/neon-race">
     <div class="game-title">Neon Race</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Top Speed Racing" data-url="https://example.com/top-speed-racing">
     <div class="game-title">Top Speed Racing</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Street Racer" data-url="https://example.com/street-racer">
     <div class="game-title">Street Racer</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Rally Point 4" data-url="https://example.com/rally-point-4">
     <div class="game-title">Rally Point 4</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Madalin Stunt Cars 2" data-url="https://example.com/madalin-stunt-cars-2">
     <div class="game-title">Madalin Stunt Cars 2</div>
     <button class="play-button">Play</button>
   </div>
+
 </div>
 
-<!-- 🏀 SPORTS GAMES -->
+<!-- ========================= -->
+<!-- 🏀 SPORTS GAMES (5) -->
+<!-- ========================= -->
 <h2 class="section-title">🏀 Sports Games</h2>
 <div class="game-grid">
+
   <div class="game-card" data-name="Basketball Stars" data-url="https://example.com/basketball-stars">
     <div class="game-title">Basketball Stars</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Penalty Kick Online" data-url="https://example.com/penalty-kick-online">
     <div class="game-title">Penalty Kick Online</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Soccer Skills Euro Cup" data-url="https://example.com/soccer-skills-euro-cup">
     <div class="game-title">Soccer Skills Euro Cup</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Mini Golf World" data-url="https://example.com/mini-golf-world">
     <div class="game-title">Mini Golf World</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Table Tennis Ultra" data-url="https://example.com/table-tennis-ultra">
     <div class="game-title">Table Tennis Ultra</div>
     <button class="play-button">Play</button>
   </div>
+
 </div>
 
-<!-- 🎮 ARCADE GAMES -->
+<!-- ========================= -->
+<!-- 🎮 ARCADE GAMES (10) -->
+<!-- ========================= -->
 <h2 class="section-title">🎮 Arcade Games</h2>
 <div class="game-grid">
+
   <div class="game-card" data-name="Breakout Hero" data-url="https://example.com/breakout-hero">
     <div class="game-title">Breakout Hero</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Galactic Shooter" data-url="https://example.com/galactic-shooter">
     <div class="game-title">Galactic Shooter</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Jumping Ninja" data-url="https://example.com/jumping-ninja">
     <div class="game-title">Jumping Ninja</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Fruit Slice" data-url="https://example.com/fruit-slice">
     <div class="game-title">Fruit Slice</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Ball Bounce" data-url="https://example.com/ball-bounce">
     <div class="game-title">Ball Bounce</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Tag" data-url="https://example.com/tag">
     <div class="game-title">Tag</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Slope" data-url="https://example.com/slope">
     <div class="game-title">Slope</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Slope Two Player" data-url="https://example.com/slope-two-player">
     <div class="game-title">Slope Two Player</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Run 3" data-url="https://example.com/run-3">
     <div class="game-title">Run 3</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Tunnel Rush" data-url="https://example.com/tunnel-rush">
     <div class="game-title">Tunnel Rush</div>
     <button class="play-button">Play</button>
   </div>
+
 </div>
 
-<!-- 👾 RETRO GAMES -->
+<!-- ========================= -->
+<!-- 👾 RETRO GAMES (5) -->
+<!-- ========================= -->
 <h2 class="section-title">👾 Retro Games</h2>
 <div class="game-grid">
+
   <div class="game-card" data-name="Asteroids Classic" data-url="https://example.com/asteroids-classic">
     <div class="game-title">Asteroids Classic</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Pacman Clone" data-url="https://example.com/pacman-clone">
     <div class="game-title">Pacman Clone</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Space Invaders Retro" data-url="https://example.com/space-invaders-retro">
     <div class="game-title">Space Invaders Retro</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Snake Retro" data-url="https://example.com/snake-retro">
     <div class="game-title">Snake Retro</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Tetris Classic" data-url="https://example.com/tetris-classic">
     <div class="game-title">Tetris Classic</div>
     <button class="play-button">Play</button>
   </div>
+
 </div>
 
-<!-- 🧠 STRATEGY GAMES -->
+<!-- ========================= -->
+<!-- 🧠 STRATEGY GAMES (5) -->
+<!-- ========================= -->
 <h2 class="section-title">🧠 Strategy Games</h2>
 <div class="game-grid">
+
   <div class="game-card" data-name="Checkers Online" data-url="https://example.com/checkers-online">
     <div class="game-title">Checkers Online</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Chess Online" data-url="https://example.com/chess-online">
     <div class="game-title">Chess Online</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Connect 4 Online" data-url="https://example.com/connect-4-online">
     <div class="game-title">Connect 4 Online</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Minesweeper" data-url="https://example.com/minesweeper">
     <div class="game-title">Minesweeper</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="2048" data-url="https://example.com/2048">
     <div class="game-title">2048</div>
     <button class="play-button">Play</button>
   </div>
+
 </div>
 
-<!-- 🎲 BOARD GAMES -->
+<!-- ========================= -->
+<!-- 🎲 BOARD GAMES (5) -->
+<!-- ========================= -->
 <h2 class="section-title">🎲 Board Games</h2>
 <div class="game-grid">
+
   <div class="game-card" data-name="Backgammon Lite" data-url="https://example.com/backgammon-lite">
     <div class="game-title">Backgammon Lite</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Ludo Online" data-url="https://example.com/ludo-online">
     <div class="game-title">Ludo Online</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Tic Tac Toe Master" data-url="https://example.com/tic-tac-toe-master">
     <div class="game-title">Tic Tac Toe Master</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Othello Lite" data-url="https://example.com/othello-lite">
     <div class="game-title">Othello Lite</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Dots and Boxes" data-url="https://example.com/dots-and-boxes">
     <div class="game-title">Dots and Boxes</div>
     <button class="play-button">Play</button>
   </div>
+
 </div>
 
-<!-- 🧩 PUZZLE GAMES -->
+<!-- ========================= -->
+<!-- 🧩 PUZZLE GAMES (5) -->
+<!-- ========================= -->
 <h2 class="section-title">🧩 Puzzle Games</h2>
 <div class="game-grid">
+
   <div class="game-card" data-name="Sliding Puzzle" data-url="https://example.com/sliding-puzzle">
     <div class="game-title">Sliding Puzzle</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Match 3 Candy" data-url="https://example.com/match-3-candy">
     <div class="game-title">Match 3 Candy</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Color Lines" data-url="https://example.com/color-lines">
     <div class="game-title">Color Lines</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Block Puzzle" data-url="https://example.com/block-puzzle">
     <div class="game-title">Block Puzzle</div>
     <button class="play-button">Play</button>
   </div>
+
   <div class="game-card" data-name="Memory Match" data-url="https://example.com/memory-match">
     <div class="game-title">Memory Match</div>
     <button class="play-button">Play</button>
   </div>
+
 </div>
 
-<!-- ⚡ EXTRA GAMES -->
+<!-- ========================= -->
+<!-- ⚡ EXTRA GAMES (10) -->
+<!-- ========================= -->
 <h2 class="section-title">⚡ Extra Games</h2>
 <div class="game-grid">
-  <div class="game-card" data-name="Extra Game 1" data-url="https://example.com/extra-game-1">
+
+  <div class="game-card" data-name="Extra Game 1" data-url="https://example.com/extra1">
     <div class="game-title">Extra Game 1</div>
     <button class="play-button">Play</button>
   </div>
-  <div class="game-card" data-name="Extra Game 2" data-url="https://example.com/extra-game-2">
+
+  <div class="game-card" data-name="Extra Game 2" data-url="https://example.com/extra2">
     <div class="game-title">Extra Game 2</div>
     <button class="play-button">Play</button>
   </div>
-  <div class="game-card" data-name="Extra Game 3" data-url="https://example.com/extra-game-3">
+
+  <div class="game-card" data-name="Extra Game 3" data-url="https://example.com/extra3">
     <div class="game-title">Extra Game 3</div>
     <button class="play-button">Play</button>
   </div>
-  <div class="game-card" data-name="Extra Game 4" data-url="https://example.com/extra-game-4">
+
+  <div class="game-card" data-name="Extra Game 4" data-url="https://example.com/extra4">
     <div class="game-title">Extra Game 4</div>
     <button class="play-button">Play</button>
   </div>
-  <div class="game-card" data-name="Extra Game 5" data-url="https://example.com/extra-game-5">
+
+  <div class="game-card" data-name="Extra Game 5" data-url="https://example.com/extra5">
     <div class="game-title">Extra Game 5</div>
     <button class="play-button">Play</button>
   </div>
-  <div class="game-card" data-name="Extra Game 6" data-url="https://example.com/extra-game-6">
+
+  <div class="game-card" data-name="Extra Game 6" data-url="https://example.com/extra6">
     <div class="game-title">Extra Game 6</div>
     <button class="play-button">Play</button>
   </div>
-  <div class="game-card" data-name="Extra Game 7" data-url="https://example.com/extra-game-7">
-    <div class="game-title">Extra Game 7</div>
-    <button class="play-button">Play</button>
-  </div>
-  <div class="game-card" data-name="Extra Game 8" data-url="https://example.com/extra-game-8">
-    <div class="game-title">Extra Game 8</div>
-    <button class="play-button">Play</button>
-  </div>
-  <div class="game-card" data-name="Extra Game 9" data-url="https://example.com/extra-game-9">
-    <div class="game-title">Extra Game 9</div>
-    <button class="play-button">Play</button>
-  </div>
-  <div class="game-card" data-name="Extra Game 10" data-url="https://example.com/extra-game-10">
-    <div class="game-title">Extra Game 10</div>
-    <button class="play-button">Play</button>
-  </div>
-</div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <span id="modal-title">Game</span>
-      <span class="modal-close" id="modal-close">&times;</span>
-    </div>
-    <iframe id="modal-iframe" class="modal-iframe" src=""></iframe>
-  </div>
-</div>
-
-<script>
-  // Search
-  const searchInput = document.getElementById('search');
-  searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    document.querySelectorAll('.game-card').forEach(card => {
-      const name = card.getAttribute('data-name').toLowerCase();
-      card.style.display = name.includes(query) ? 'block' : 'none';
-    });
-  });
-
-  // Modal logic
-  const modal = document.getElementById('modal');
-  const modalIframe = document.getElementById('modal-iframe');
-  const modalTitle = document.getElementById('modal-title');
-  const modalClose = document.getElementById('modal-close');
-
-  document.querySelectorAll('.play-button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.game-card');
-      const url = card.getAttribute('data-url');
-      const title = card.getAttribute('data-name');
-      modalTitle.textContent = title;
-      modalIframe.src = url;
-      modal.style.display = 'flex';
-    });
-  });
-
-  function closeModal() {
-    modal.style.display = 'none';
-    modalIframe.src = '';
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-</script>
-
-</body>
-</html>
+  <div class="game-card" data-name="Extra Game 
