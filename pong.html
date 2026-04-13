@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Pong</title>
+  <title>Breakout Pong</title>
 
   <style>
     body {
@@ -19,116 +19,173 @@
 </head>
 <body>
 
-<canvas id="pong" width="800" height="500"></canvas>
+<canvas id="game" width="800" height="500"></canvas>
 
 <script>
-const canvas = document.getElementById("pong");
+const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+
+// Paddle
+let paddle = {
+  width: 120,
+  height: 15,
+  x: canvas.width / 2 - 60,
+  y: canvas.height - 30,
+  speed: 10,
+  dx: 0
+};
 
 // Ball
 let ball = {
   x: canvas.width / 2,
-  y: canvas.height / 2,
+  y: canvas.height - 50,
   radius: 10,
-  speedX: 5,
-  speedY: 5
+  speed: 6,
+  dx: 4,
+  dy: -4
 };
 
-// Player paddle
-let paddle = {
-  x: 20,
-  y: canvas.height / 2 - 50,
-  width: 15,
-  height: 100,
-  speed: 7
+// Bricks
+const brick = {
+  rows: 5,
+  cols: 8,
+  width: 80,
+  height: 25,
+  padding: 10,
+  offsetTop: 40,
+  offsetLeft: 35
 };
 
-// Computer paddle
-let cpu = {
-  x: canvas.width - 35,
-  y: canvas.height / 2 - 50,
-  width: 15,
-  height: 100,
-  speed: 4
-};
+let bricks = [];
 
-// Draw rectangle
-function rect(x, y, w, h, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x, y, w, h);
+function createBricks() {
+  for (let r = 0; r < brick.rows; r++) {
+    bricks[r] = [];
+    for (let c = 0; c < brick.cols; c++) {
+      bricks[r][c] = { x: 0, y: 0, destroyed: false };
+    }
+  }
 }
 
-// Draw circle
-function circle(x, y, r, color) {
-  ctx.fillStyle = color;
+createBricks();
+
+// Draw paddle
+function drawPaddle() {
+  ctx.fillStyle = "white";
+  ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+}
+
+// Draw ball
+function drawBall() {
+  ctx.fillStyle = "white";
   ctx.beginPath();
-  ctx.arc(x, y, r, 0, Math.PI * 2);
-  ctx.closePath();
+  ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
   ctx.fill();
+  ctx.closePath();
 }
 
-// Move paddles
-document.addEventListener("keydown", e => {
-  if (e.key === "ArrowUp") paddle.y -= paddle.speed;
-  if (e.key === "ArrowDown") paddle.y += paddle.speed;
-});
+// Draw bricks
+function drawBricks() {
+  for (let r = 0; r < brick.rows; r++) {
+    for (let c = 0; c < brick.cols; c++) {
+      if (!bricks[r][c].destroyed) {
+        let bx = c * (brick.width + brick.padding) + brick.offsetLeft;
+        let by = r * (brick.height + brick.padding) + brick.offsetTop;
 
-// Game loop
-function update() {
-  // Move ball
-  ball.x += ball.speedX;
-  ball.y += ball.speedY;
+        bricks[r][c].x = bx;
+        bricks[r][c].y = by;
 
-  // Bounce top/bottom
-  if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
-    ball.speedY *= -1;
+        ctx.fillStyle = "#00aaff";
+        ctx.fillRect(bx, by, brick.width, brick.height);
+      }
+    }
   }
+}
 
-  // CPU AI
-  if (cpu.y + cpu.height / 2 < ball.y) cpu.y += cpu.speed;
-  else cpu.y -= cpu.speed;
+// Move paddle
+function movePaddle() {
+  paddle.x += paddle.dx;
 
-  // Player collision
+  if (paddle.x < 0) paddle.x = 0;
+  if (paddle.x + paddle.width > canvas.width)
+    paddle.x = canvas.width - paddle.width;
+}
+
+// Move ball
+function moveBall() {
+  ball.x += ball.dx;
+  ball.y += ball.dy;
+
+  // Wall bounce
+  if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0)
+    ball.dx *= -1;
+
+  if (ball.y - ball.radius < 0)
+    ball.dy *= -1;
+
+  // Paddle bounce
   if (
-    ball.x - ball.radius < paddle.x + paddle.width &&
-    ball.y > paddle.y &&
-    ball.y < paddle.y + paddle.height
+    ball.y + ball.radius > paddle.y &&
+    ball.x > paddle.x &&
+    ball.x < paddle.x + paddle.width
   ) {
-    ball.speedX *= -1;
+    ball.dy *= -1;
   }
 
-  // CPU collision
-  if (
-    ball.x + ball.radius > cpu.x &&
-    ball.y > cpu.y &&
-    ball.y < cpu.y + cpu.height
-  ) {
-    ball.speedX *= -1;
-  }
-
-  // Reset if ball goes off screen
-  if (ball.x < 0 || ball.x > canvas.width) {
+  // Bottom reset
+  if (ball.y + ball.radius > canvas.height) {
     ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
+    ball.y = canvas.height - 50;
+    ball.dx = 4;
+    ball.dy = -4;
+  }
+
+  // Brick collision
+  for (let r = 0; r < brick.rows; r++) {
+    for (let c = 0; c < brick.cols; c++) {
+      let b = bricks[r][c];
+      if (!b.destroyed) {
+        if (
+          ball.x > b.x &&
+          ball.x < b.x + brick.width &&
+          ball.y > b.y &&
+          ball.y < b.y + brick.height
+        ) {
+          ball.dy *= -1;
+          b.destroyed = true;
+        }
+      }
+    }
   }
 }
 
 // Draw everything
 function draw() {
-  rect(0, 0, canvas.width, canvas.height, "#111");
-  rect(paddle.x, paddle.y, paddle.width, paddle.height, "white");
-  rect(cpu.x, cpu.y, cpu.width, cpu.height, "white");
-  circle(ball.x, ball.y, ball.radius, "white");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawPaddle();
+  drawBall();
+  drawBricks();
 }
 
-// Loop
-function gameLoop() {
-  update();
+// Game loop
+function update() {
+  movePaddle();
+  moveBall();
   draw();
-  requestAnimationFrame(gameLoop);
+  requestAnimationFrame(update);
 }
 
-gameLoop();
+update();
+
+// Controls
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowLeft") paddle.dx = -paddle.speed;
+  if (e.key === "ArrowRight") paddle.dx = paddle.speed;
+});
+
+document.addEventListener("keyup", e => {
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") paddle.dx = 0;
+});
 </script>
 
 </body>
