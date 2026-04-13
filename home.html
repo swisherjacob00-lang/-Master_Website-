@@ -2,194 +2,172 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Breakout Pong</title>
+
+  <title>Master's Gaming Hub</title>
 
   <style>
     body {
       margin: 0;
-      background: black;
-      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: #1e90ff;
+      color: white;
     }
-    canvas {
-      display: block;
-      margin: auto;
-      background: #111;
+
+    header {
+      background: #003f88;
+      padding: 20px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    #search-container {
+      text-align: center;
+      margin: 20px;
+    }
+
+    #search {
+      width: 60%;
+      max-width: 500px;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .section-title {
+      font-size: 26px;
+      margin: 20px;
+      border-left: 5px solid white;
+      padding-left: 10px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .game-card {
+      background: #005bbb;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid #003f88;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+      background: #0077ff;
+    }
+
+    .game-card span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    #gameFrameContainer {
+      width: 100%;
+      height: 600px;
+      display: none;
+      margin-top: 20px;
+    }
+
+    #gameFrame {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
 
-<canvas id="game" width="800" height="500"></canvas>
+<header>Master's Gaming Hub</header>
+
+<div id="search-container">
+  <input type="text" id="search" placeholder="Search for a game...">
+</div>
+
+<!-- CATEGORY 1 -->
+<h2 class="section-title">🎮 Board & Strategy Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Goose Game" onclick="openGame('https://toytheater.com/goose-game/')">
+    <span>Goose Game</span>
+  </div>
+
+  <div class="game-card" data-name="Checkers" onclick="openGame('https://toytheater.com/checkers/')">
+    <span>Checkers</span>
+  </div>
+
+  <div class="game-card" data-name="Chess" onclick="openGame('https://toytheater.com/chess/')">
+    <span>Chess</span>
+  </div>
+
+  <div class="game-card" data-name="Connect 4" onclick="openGame('https://toytheater.com/connect-4/')">
+    <span>Connect 4</span>
+  </div>
+
+  <div class="game-card" data-name="Reversi" onclick="openGame('https://toytheater.com/reversi/')">
+    <span>Reversi</span>
+  </div>
+
+</div>
+
+<!-- CATEGORY 2 -->
+<h2 class="section-title">⚡ Arcade & Action Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Space Race" onclick="openGame('https://toytheater.com/space-race/')">
+    <span>Space Race</span>
+  </div>
+
+  <div class="game-card" data-name="Brick Breaker" onclick="openGame('https://toytheater.com/brick-breaker/')">
+    <span>Brick Breaker</span>
+  </div>
+
+  <div class="game-card" data-name="Car Race" onclick="openGame('https://toytheater.com/car-race/')">
+    <span>Car Race</span>
+  </div>
+
+  <div class="game-card" data-name="Maze Game" onclick="openGame('https://toytheater.com/maze-game/')">
+    <span>Maze Game</span>
+  </div>
+
+  <div class="game-card" data-name="Platform Game" onclick="openGame('https://toytheater.com/platform-game/')">
+    <span>Platform Game</span>
+  </div>
+
+</div>
+
+<!-- GAME VIEWER -->
+<div id="gameFrameContainer">
+  <iframe id="gameFrame"></iframe>
+</div>
 
 <script>
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
+  const searchInput = document.getElementById("search");
+  const gameCards = document.querySelectorAll(".game-card");
 
-// Paddle
-let paddle = {
-  width: 120,
-  height: 15,
-  x: canvas.width / 2 - 60,
-  y: canvas.height - 30,
-  speed: 10,
-  dx: 0
-};
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
 
-// Ball
-let ball = {
-  x: canvas.width / 2,
-  y: canvas.height - 50,
-  radius: 10,
-  speed: 6,
-  dx: 4,
-  dy: -4
-};
+    gameCards.forEach(card => {
+      const name = card.getAttribute("data-name").toLowerCase();
+      card.style.display = name.includes(query) ? "block" : "none";
+    });
+  });
 
-// Brick settings
-const brick = {
-  rows: 6,
-  cols: 10,
-  width: 70,
-  height: 20,
-  padding: 10,
-  offsetTop: 40,
-  offsetLeft: 25
-};
-
-let bricks = [];
-
-function createBricks() {
-  for (let r = 0; r < brick.rows; r++) {
-    bricks[r] = [];
-    for (let c = 0; c < brick.cols; c++) {
-      bricks[r][c] = { x: 0, y: 0, destroyed: false };
-    }
+  function openGame(url) {
+    document.getElementById("gameFrameContainer").style.display = "block";
+    document.getElementById("gameFrame").src = url;
+    window.scrollTo(0, document.body.scrollHeight);
   }
-}
-
-createBricks();
-
-// Draw paddle
-function drawPaddle() {
-  ctx.fillStyle = "white";
-  ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
-}
-
-// Draw ball
-function drawBall() {
-  ctx.fillStyle = "white";
-  ctx.beginPath();
-  ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.closePath();
-}
-
-// Draw bricks
-function drawBricks() {
-  for (let r = 0; r < brick.rows; r++) {
-    for (let c = 0; c < brick.cols; c++) {
-      if (!bricks[r][c].destroyed) {
-        let bx = c * (brick.width + brick.padding) + brick.offsetLeft;
-        let by = r * (brick.height + brick.padding) + brick.offsetTop;
-
-        bricks[r][c].x = bx;
-        bricks[r][c].y = by;
-
-        ctx.fillStyle = "#00aaff";
-        ctx.fillRect(bx, by, brick.width, brick.height);
-      }
-    }
-  }
-}
-
-// Move paddle
-function movePaddle() {
-  paddle.x += paddle.dx;
-
-  if (paddle.x < 0) paddle.x = 0;
-  if (paddle.x + paddle.width > canvas.width)
-    paddle.x = canvas.width - paddle.width;
-}
-
-// Move ball
-function moveBall() {
-  ball.x += ball.dx;
-  ball.y += ball.dy;
-
-  // Wall bounce
-  if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0)
-    ball.dx *= -1;
-
-  if (ball.y - ball.radius < 0)
-    ball.dy *= -1;
-
-  // Paddle bounce
-  if (
-    ball.y + ball.radius > paddle.y &&
-    ball.x > paddle.x &&
-    ball.x < paddle.x + paddle.width
-  ) {
-    ball.dy *= -1;
-
-    // Add spin based on where the ball hits the paddle
-    let hitPoint = ball.x - (paddle.x + paddle.width / 2);
-    ball.dx = hitPoint * 0.15;
-  }
-
-  // Bottom reset
-  if (ball.y + ball.radius > canvas.height) {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height - 50;
-    ball.dx = 4;
-    ball.dy = -4;
-  }
-
-  // Brick collision
-  for (let r = 0; r < brick.rows; r++) {
-    for (let c = 0; c < brick.cols; c++) {
-      let b = bricks[r][c];
-      if (!b.destroyed) {
-        if (
-          ball.x > b.x &&
-          ball.x < b.x + brick.width &&
-          ball.y > b.y &&
-          ball.y < b.y + brick.height
-        ) {
-          ball.dy *= -1;
-          b.destroyed = true;
-        }
-      }
-    }
-  }
-}
-
-// Draw everything
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawPaddle();
-  drawBall();
-  drawBricks();
-}
-
-// Game loop
-function update() {
-  movePaddle();
-  moveBall();
-  draw();
-  requestAnimationFrame(update);
-}
-
-update();
-
-// Controls
-document.addEventListener("keydown", e => {
-  if (e.key === "ArrowLeft") paddle.dx = -paddle.speed;
-  if (e.key === "ArrowRight") paddle.dx = paddle.speed;
-});
-
-document.addEventListener("keyup", e => {
-  if (e.key === "ArrowLeft" || e.key === "ArrowRight") paddle.dx = 0;
-});
 </script>
 
 </body>
