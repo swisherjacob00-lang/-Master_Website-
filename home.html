@@ -58,6 +58,7 @@
       text-align: center;
       border: 2px solid #003f88;
       transition: 0.2s;
+      cursor: pointer;
     }
 
     .game-card:hover {
@@ -65,17 +66,9 @@
       background: #0077ff;
     }
 
-    button {
-      background: none;
-      border: none;
-      color: white;
+    .game-card span {
       font-size: 20px;
       font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      text-decoration: underline;
     }
 
     #gameFrameContainer {
@@ -104,24 +97,24 @@
 <h2 class="section-title">🎮 Board & Strategy Games</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Goose Game">
-    <button onclick="openGame('https://toytheater.com/goose-game/')">Goose Game</button>
+  <div class="game-card" data-name="Goose Game" onclick="openGame('https://toytheater.com/goose-game/')">
+    <span>Goose Game</span>
   </div>
 
-  <div class="game-card" data-name="Checkers">
-    <button onclick="openGame('https://toytheater.com/checkers/')">Checkers</button>
+  <div class="game-card" data-name="Checkers" onclick="openGame('https://toytheater.com/checkers/')">
+    <span>Checkers</span>
   </div>
 
-  <div class="game-card" data-name="Chess">
-    <button onclick="openGame('https://toytheater.com/chess/')">Chess</button>
+  <div class="game-card" data-name="Chess" onclick="openGame('https://toytheater.com/chess/')">
+    <span>Chess</span>
   </div>
 
-  <div class="game-card" data-name="Connect 4">
-    <button onclick="openGame('https://toytheater.com/connect-4/')">Connect 4</button>
+  <div class="game-card" data-name="Connect 4" onclick="openGame('https://toytheater.com/connect-4/')">
+    <span>Connect 4</span>
   </div>
 
-  <div class="game-card" data-name="Reversi">
-    <button onclick="openGame('https://toytheater.com/reversi/')">Reversi</button>
+  <div class="game-card" data-name="Reversi" onclick="openGame('https://toytheater.com/reversi/')">
+    <span>Reversi</span>
   </div>
 
 </div>
@@ -130,24 +123,24 @@
 <h2 class="section-title">⚡ Arcade & Action Games</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Space Race">
-    <button onclick="openGame('https://toytheater.com/space-race/')">Space Race</button>
+  <div class="game-card" data-name="Space Race" onclick="openGame('https://toytheater.com/space-race/')">
+    <span>Space Race</span>
   </div>
 
-  <div class="game-card" data-name="Brick Breaker">
-    <button onclick="openGame('https://toytheater.com/brick-breaker/')">Brick Breaker</button>
+  <div class="game-card" data-name="Brick Breaker" onclick="openGame('https://toytheater.com/brick-breaker/')">
+    <span>Brick Breaker</span>
   </div>
 
-  <div class="game-card" data-name="Car Race">
-    <button onclick="openGame('https://toytheater.com/car-race/')">Car Race</button>
+  <div class="game-card" data-name="Car Race" onclick="openGame('https://toytheater.com/car-race/')">
+    <span>Car Race</span>
   </div>
 
-  <div class="game-card" data-name="Maze Game">
-    <button onclick="openGame('https://toytheater.com/maze-game/')">Maze Game</button>
+  <div class="game-card" data-name="Maze Game" onclick="openGame('https://toytheater.com/maze-game/')">
+    <span>Maze Game</span>
   </div>
 
-  <div class="game-card" data-name="Platform Game">
-    <button onclick="openGame('https://toytheater.com/platform-game/')">Platform Game</button>
+  <div class="game-card" data-name="Platform Game" onclick="openGame('https://toytheater.com/platform-game/')">
+    <span>Platform Game</span>
   </div>
 
 </div>
