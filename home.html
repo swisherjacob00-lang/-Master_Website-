@@ -11,6 +11,7 @@
       font-family: Arial, sans-serif;
       background: #1e90ff;
       color: white;
+      overflow-y: scroll;
     }
 
     header {
@@ -20,6 +21,9 @@
       font-size: 32px;
       font-weight: bold;
       letter-spacing: 1px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     #search-container {
@@ -141,6 +145,16 @@
 
   <div class="game-card" data-name="Platform Game" onclick="openGame('https://toytheater.com/platform-game/')">
     <span>Platform Game</span>
+  </div>
+
+</div>
+
+<!-- CATEGORY 3 — YOUR CUSTOM GAME -->
+<h2 class="section-title">🔥 Master’s Custom Games</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Pong" onclick="openGame('pong.html')">
+    <span>Pong (Your Game)</span>
   </div>
 
 </div>
