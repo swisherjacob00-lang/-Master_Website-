@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Master’s Game Hub</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #1e90ff; /* BLUE BACKGROUND */
+      background: #1e90ff;
       color: white;
     }
 
@@ -63,11 +64,18 @@
       background: #0077ff;
     }
 
-    a {
+    /* BUTTON STYLE */
+    button {
+      background: none;
+      border: none;
       color: white;
-      text-decoration: none;
       font-size: 20px;
       font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -86,31 +94,31 @@
 <div class="game-grid">
 
   <div class="game-card" data-name="Slope">
-    <a href="https://slope-game.io/">Slope</a>
+    <button onclick="openGame('https://slope-game.io/')">Slope</button>
   </div>
 
   <div class="game-card" data-name="Slope 2">
-    <a href="https://slope2.online/">Slope 2</a>
+    <button onclick="openGame('https://slope2.online/')">Slope 2</button>
   </div>
 
   <div class="game-card" data-name="Slope 2 Player">
-    <a href="https://slope2game.io/slope-2-player">Slope 2 Player</a>
+    <button onclick="openGame('https://slope2game.io/slope-2-player')">Slope 2 Player</button>
   </div>
 
   <div class="game-card" data-name="Run 3">
-    <a href="https://run3.io/">Run 3</a>
+    <button onclick="openGame('https://run3.io/')">Run 3</button>
   </div>
 
   <div class="game-card" data-name="OvO">
-    <a href="https://ovo-game.com/">OvO</a>
+    <button onclick="openGame('https://ovo-game.com/')">OvO</button>
   </div>
 
   <div class="game-card" data-name="Vex 7">
-    <a href="https://vex7.io/">Vex 7</a>
+    <button onclick="openGame('https://vex7.io/')">Vex 7</button>
   </div>
 
   <div class="game-card" data-name="Geometry Dash Lite">
-    <a href="https://geometrydashlite.io/">Geometry Dash Lite</a>
+    <button onclick="openGame('https://geometrydashlite.io/')">Geometry Dash Lite</button>
   </div>
 
 </div>
@@ -122,27 +130,27 @@
 <div class="game-grid">
 
   <div class="game-card" data-name="Moto X3M">
-    <a href="https://www.crazygames.com/game/moto-x3m">Moto X3M</a>
+    <button onclick="openGame('https://www.crazygames.com/game/moto-x3m')">Moto X3M</button>
   </div>
 
   <div class="game-card" data-name="Drive Mad">
-    <a href="https://drivemad.org/">Drive Mad</a>
+    <button onclick="openGame('https://drivemad.org/')">Drive Mad</button>
   </div>
 
   <div class="game-card" data-name="Drift Boss">
-    <a href="https://www.crazygames.com/game/drift-boss">Drift Boss</a>
+    <button onclick="openGame('https://www.crazygames.com/game/drift-boss')">Drift Boss</button>
   </div>
 
   <div class="game-card" data-name="Hill Climb Racing">
-    <a href="https://hillclimbracing.io/">Hill Climb Racing</a>
+    <button onclick="openGame('https://hillclimbracing.io/')">Hill Climb Racing</button>
   </div>
 
   <div class="game-card" data-name="Smash Karts">
-    <a href="https://smashkarts.io/">Smash Karts</a>
+    <button onclick="openGame('https://smashkarts.io/')">Smash Karts</button>
   </div>
 
   <div class="game-card" data-name="Snow Rider 3D">
-    <a href="https://snowrider3d.com/">Snow Rider 3D</a>
+    <button onclick="openGame('https://snowrider3d.com/')">Snow Rider 3D</button>
   </div>
 
 </div>
@@ -154,27 +162,27 @@
 <div class="game-grid">
 
   <div class="game-card" data-name="2048">
-    <a href="https://play2048.co/">2048</a>
+    <button onclick="openGame('https://play2048.co/')">2048</button>
   </div>
 
   <div class="game-card" data-name="Tiny Fishing">
-    <a href="https://www.mathnook.com/math/fishing-game-tiny-fishing.html">Tiny Fishing</a>
+    <button onclick="openGame('https://www.mathnook.com/math/fishing-game-tiny-fishing.html')">Tiny Fishing</button>
   </div>
 
   <div class="game-card" data-name="Cookie Clicker">
-    <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a>
+    <button onclick="openGame('https://orteil.dashnet.org/cookieclicker/')">Cookie Clicker</button>
   </div>
 
   <div class="game-card" data-name="Elastic Man">
-    <a href="https://elasticman.net/">Elastic Man</a>
+    <button onclick="openGame('https://elasticman.net/')">Elastic Man</button>
   </div>
 
   <div class="game-card" data-name="Stack">
-    <a href="https://stack-game.github.io/">Stack</a>
+    <button onclick="openGame('https://stack-game.github.io/')">Stack</button>
   </div>
 
   <div class="game-card" data-name="Paper.io">
-    <a href="https://paper-io.com/">Paper.io</a>
+    <button onclick="openGame('https://paper-io.com/')">Paper.io</button>
   </div>
 
 </div>
@@ -186,31 +194,31 @@
 <div class="game-grid">
 
   <div class="game-card" data-name="Basket Random">
-    <a href="https://basketball-random.io/">Basket Random</a>
+    <button onclick="openGame('https://basketball-random.io/')">Basket Random</button>
   </div>
 
   <div class="game-card" data-name="Basketball Stars">
-    <a href="https://basketball-stars.co/">Basketball Stars</a>
+    <button onclick="openGame('https://basketball-stars.co/')">Basketball Stars</button>
   </div>
 
   <div class="game-card" data-name="Tunnel Rush">
-    <a href="https://tunnelrushgame.io/">Tunnel Rush</a>
+    <button onclick="openGame('https://tunnelrushgame.io/')">Tunnel Rush</button>
   </div>
 
   <div class="game-card" data-name="Subway Surfers">
-    <a href="https://subwaysurfersgame.io/">Subway Surfers</a>
+    <button onclick="openGame('https://subwaysurfersgame.io/')">Subway Surfers</button>
   </div>
 
   <div class="game-card" data-name="Temple Run 2">
-    <a href="https://templerun2.io/">Temple Run 2</a>
+    <button onclick="openGame('https://templerun2.io/')">Temple Run 2</button>
   </div>
 
   <div class="game-card" data-name="Monkey Mart">
-    <a href="https://monkeymart.org/">Monkey Mart</a>
+    <button onclick="openGame('https://monkeymart.org/')">Monkey Mart</button>
   </div>
 
   <div class="game-card" data-name="YoHoHo.io">
-    <a href="https://yohoho.io/">YoHoHo.io</a>
+    <button onclick="openGame('https://yohoho.io/')">YoHoHo.io</button>
   </div>
 
 </div>
@@ -222,17 +230,25 @@
 <div class="game-grid">
 
   <div class="game-card" data-name="Getting Over It">
-    <a href="https://gettingoverit.io/">Getting Over It</a>
+    <button onclick="openGame('https://gettingoverit.io/')">Getting Over It</button>
   </div>
 
   <div class="game-card" data-name="BitLife">
-    <a href="https://bitlifeonline.io/">BitLife</a>
+    <button onclick="openGame('https://bitlifeonline.io/')">BitLife</button>
   </div>
 
   <div class="game-card" data-name="Fireboy and Watergirl">
-    <a href="https://fireboywatergirl.io/">Fireboy & Watergirl</a>
+    <button onclick="openGame('https://fireboywatergirl.io/')">Fireboy & Watergirl</button>
   </div>
 
+</div>
+
+<!-- ===================== -->
+<!--     EMBEDDED GAME VIEWER -->
+<!-- ===================== -->
+
+<div id="gameFrameContainer" style="width:100%; height:600px; display:none; margin-top:20px;">
+  <iframe id="gameFrame" style="width:100%; height:100%; border:none;"></iframe>
 </div>
 
 <script>
@@ -244,14 +260,15 @@
 
     gameCards.forEach(card => {
       const name = card.getAttribute("data-name").toLowerCase();
-
-      if (name.includes(query)) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+      card.style.display = name.includes(query) ? "block" : "none";
     });
   });
+
+  function openGame(url) {
+    document.getElementById("gameFrameContainer").style.display = "block";
+    document.getElementById("gameFrame").src = url;
+    window.scrollTo(0, document.body.scrollHeight);
+  }
 </script>
 
 </body>
