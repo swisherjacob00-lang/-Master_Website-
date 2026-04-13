@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="UTF-8">
-
   <title>Power School</title>
 
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/google/material-design-icons/master/src/core/blue600.png">
@@ -21,29 +20,6 @@
       text-align: center;
       font-size: 32px;
       font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    #search-container {
-      text-align: center;
-      margin: 20px;
-    }
-
-    #search {
-      width: 60%;
-      max-width: 500px;
-      padding: 12px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-    }
-
-    .section-title {
-      font-size: 26px;
-      margin: 20px;
-      border-left: 5px solid white;
-      padding-left: 10px;
     }
 
     .game-grid {
@@ -59,12 +35,6 @@
       border-radius: 10px;
       text-align: center;
       border: 2px solid #003f88;
-      transition: 0.2s;
-    }
-
-    .game-card:hover {
-      transform: scale(1.05);
-      background: #0077ff;
     }
 
     button {
@@ -72,12 +42,7 @@
       border: none;
       color: white;
       font-size: 20px;
-      font-weight: bold;
       cursor: pointer;
-    }
-
-    button:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -85,34 +50,23 @@
 
 <header>School‑Safe Game Hub</header>
 
-<div id="search-container">
-  <input type="text" id="search" placeholder="Search for a game...">
-</div>
+<h2 style="margin-left:20px;">🎮 Unblocked Games</h2>
 
-<h2 class="section-title">🎮 Unblocked Games (MathPlayground)</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Math Playground Games">
+  <div class="game-card">
     <button onclick="window.open('https://www.mathplayground.com/games.html', '_blank')">
-      Open Game Library
+      Math Playground Games
+    </button>
+  </div>
+
+  <div class="game-card">
+    <button onclick="window.open('https://www.mathnook.com/math/', '_blank')">
+      MathNook Games
     </button>
   </div>
 
 </div>
-
-<script>
-  const searchInput = document.getElementById("search");
-  const gameCards = document.querySelectorAll(".game-card");
-
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase();
-
-    gameCards.forEach(card => {
-      const name = card.getAttribute("data-name").toLowerCase();
-      card.style.display = name.includes(query) ? "block" : "none";
-    });
-  });
-</script>
 
 </body>
 </html>
