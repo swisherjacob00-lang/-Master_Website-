@@ -244,7 +244,12 @@
 
     gameCards.forEach(card => {
       const name = card.getAttribute("data-name").toLowerCase();
-      card.style.display = name.includes(query) ? "block" : "none";
+
+      if (name.includes(query)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
     });
   });
 </script>
