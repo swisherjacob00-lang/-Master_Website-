@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0a1626, #11243d, #1a3354);
+      background: linear-gradient(135deg, #07111f, #0f2138, #16345a);
       color: white;
     }
 
@@ -71,64 +71,10 @@
       margin-bottom: 10px;
     }
 
-    .play-button {
-      display: block;
+    iframe {
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+      height: 400px;
       border: none;
-      border-radius: 6px;
-      background: #00b4ff;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .play-button:hover {
-      background: #0090d0;
-    }
-
-    /* Modal */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 100;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      width: 90vw;
-      height: 90vh;
-      background: #000;
-      border-radius: 10px;
-      position: relative;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      margin-bottom: 5px;
-      font-size: 18px;
-    }
-
-    .modal-close {
-      cursor: pointer;
-      font-size: 22px;
-      padding: 0 10px;
-    }
-
-    .modal-iframe {
-      flex: 1;
-      border: none;
-      width: 100%;
       border-radius: 8px;
       background: black;
     }
@@ -156,291 +102,245 @@
   document.getElementById("search").addEventListener("input", filterGames);
 </script>
 
-<!-- ========================================================= -->
-<!-- 🚗 CAR GAMES (5) -->
-<!-- ========================================================= -->
+<!-- 🚗 CAR GAMES -->
 <h2 class="section-title">🚗 Car Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Neon Race" data-url="https://example.com/neon-race">
+  <div class="game-card" data-name="Neon Race">
     <div class="game-title">Neon Race</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/neon-race"></iframe>
   </div>
-
-  <div class="game-card" data-name="Top Speed Racing" data-url="https://example.com/top-speed-racing">
+  <div class="game-card" data-name="Top Speed Racing">
     <div class="game-title">Top Speed Racing</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/top-speed-racing"></iframe>
   </div>
-
-  <div class="game-card" data-name="Street Racer" data-url="https://example.com/street-racer">
+  <div class="game-card" data-name="Street Racer">
     <div class="game-title">Street Racer</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/street-racer"></iframe>
   </div>
-
-  <div class="game-card" data-name="Rally Point 4" data-url="https://example.com/rally-point-4">
+  <div class="game-card" data-name="Rally Point 4">
     <div class="game-title">Rally Point 4</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/rally-point-4"></iframe>
   </div>
-
-  <div class="game-card" data-name="Madalin Stunt Cars 2" data-url="https://example.com/madalin-stunt-cars-2">
+  <div class="game-card" data-name="Madalin Stunt Cars 2">
     <div class="game-title">Madalin Stunt Cars 2</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/madalin-stunt-cars-2"></iframe>
   </div>
-
 </div>
 
-<!-- ========================================================= -->
-<!-- 🏀 SPORTS GAMES (5) -->
-<!-- ========================================================= -->
+<!-- 🏀 SPORTS GAMES -->
 <h2 class="section-title">🏀 Sports Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Basketball Stars" data-url="https://example.com/basketball-stars">
+  <div class="game-card" data-name="Basketball Stars">
     <div class="game-title">Basketball Stars</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/basketball-stars"></iframe>
   </div>
-
-  <div class="game-card" data-name="Penalty Kick Online" data-url="https://example.com/penalty-kick-online">
+  <div class="game-card" data-name="Penalty Kick Online">
     <div class="game-title">Penalty Kick Online</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/penalty-kick-online"></iframe>
   </div>
-
-  <div class="game-card" data-name="Soccer Skills Euro Cup" data-url="https://example.com/soccer-skills-euro-cup">
+  <div class="game-card" data-name="Soccer Skills Euro Cup">
     <div class="game-title">Soccer Skills Euro Cup</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/soccer-skills-euro-cup"></iframe>
   </div>
-
-  <div class="game-card" data-name="Mini Golf World" data-url="https://example.com/mini-golf-world">
+  <div class="game-card" data-name="Mini Golf World">
     <div class="game-title">Mini Golf World</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/mini-golf-world"></iframe>
   </div>
-
-  <div class="game-card" data-name="Table Tennis Ultra" data-url="https://example.com/table-tennis-ultra">
+  <div class="game-card" data-name="Table Tennis Ultra">
     <div class="game-title">Table Tennis Ultra</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/table-tennis-ultra"></iframe>
   </div>
-
 </div>
 
-<!-- ========================================================= -->
-<!-- 🎮 ARCADE GAMES (10) -->
-<!-- ========================================================= -->
+<!-- 🎮 ARCADE GAMES -->
 <h2 class="section-title">🎮 Arcade Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Breakout Hero" data-url="https://example.com/breakout-hero">
+  <div class="game-card" data-name="Breakout Hero">
     <div class="game-title">Breakout Hero</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/breakout-hero"></iframe>
   </div>
-
-  <div class="game-card" data-name="Galactic Shooter" data-url="https://example.com/galactic-shooter">
+  <div class="game-card" data-name="Galactic Shooter">
     <div class="game-title">Galactic Shooter</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/galactic-shooter"></iframe>
   </div>
-
-  <div class="game-card" data-name="Jumping Ninja" data-url="https://example.com/jumping-ninja">
+  <div class="game-card" data-name="Jumping Ninja">
     <div class="game-title">Jumping Ninja</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/jumping-ninja"></iframe>
   </div>
-
-  <div class="game-card" data-name="Fruit Slice" data-url="https://example.com/fruit-slice">
+  <div class="game-card" data-name="Fruit Slice">
     <div class="game-title">Fruit Slice</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/fruit-slice"></iframe>
   </div>
-
-  <div class="game-card" data-name="Ball Bounce" data-url="https://example.com/ball-bounce">
+  <div class="game-card" data-name="Ball Bounce">
     <div class="game-title">Ball Bounce</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/ball-bounce"></iframe>
   </div>
-
-  <div class="game-card" data-name="Tag" data-url="https://example.com/tag">
+  <div class="game-card" data-name="Tag">
     <div class="game-title">Tag</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/tag"></iframe>
   </div>
-
-  <div class="game-card" data-name="Slope" data-url="https://example.com/slope">
+  <div class="game-card" data-name="Slope">
     <div class="game-title">Slope</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/slope"></iframe>
   </div>
-
-  <div class="game-card" data-name="Slope Two Player" data-url="https://example.com/slope-two-player">
+  <div class="game-card" data-name="Slope Two Player">
     <div class="game-title">Slope Two Player</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/slope-two-player"></iframe>
   </div>
-
-  <div class="game-card" data-name="Run 3" data-url="https://example.com/run-3">
+  <div class="game-card" data-name="Run 3">
     <div class="game-title">Run 3</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/run-3"></iframe>
   </div>
-
-  <div class="game-card" data-name="Tunnel Rush" data-url="https://example.com/tunnel-rush">
+  <div class="game-card" data-name="Tunnel Rush">
     <div class="game-title">Tunnel Rush</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/tunnel-rush"></iframe>
   </div>
-
 </div>
 
-<!-- ========================================================= -->
-<!-- 👾 RETRO GAMES (5) -->
-<!-- ========================================================= -->
+<!-- 👾 RETRO GAMES -->
 <h2 class="section-title">👾 Retro Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Asteroids Classic" data-url="https://example.com/asteroids-classic">
+  <div class="game-card" data-name="Asteroids Classic">
     <div class="game-title">Asteroids Classic</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/asteroids-classic"></iframe>
   </div>
-
-  <div class="game-card" data-name="Pacman Clone" data-url="https://example.com/pacman-clone">
+  <div class="game-card" data-name="Pacman Clone">
     <div class="game-title">Pacman Clone</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/pacman-clone"></iframe>
   </div>
-
-  <div class="game-card" data-name="Space Invaders Retro" data-url="https://example.com/space-invaders-retro">
+  <div class="game-card" data-name="Space Invaders Retro">
     <div class="game-title">Space Invaders Retro</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/space-invaders-retro"></iframe>
   </div>
-
-  <div class="game-card" data-name="Snake Retro" data-url="https://example.com/snake-retro">
+  <div class="game-card" data-name="Snake Retro">
     <div class="game-title">Snake Retro</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/snake-retro"></iframe>
   </div>
-
-  <div class="game-card" data-name="Tetris Classic" data-url="https://example.com/tetris-classic">
+  <div class="game-card" data-name="Tetris Classic">
     <div class="game-title">Tetris Classic</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/tetris-classic"></iframe>
   </div>
-
 </div>
 
-<!-- ========================================================= -->
-<!-- 🧠 STRATEGY GAMES (5) -->
-<!-- ========================================================= -->
+<!-- 🧠 STRATEGY GAMES -->
 <h2 class="section-title">🧠 Strategy Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Checkers Online" data-url="https://example.com/checkers-online">
+  <div class="game-card" data-name="Checkers Online">
     <div class="game-title">Checkers Online</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/checkers-online"></iframe>
   </div>
-
-  <div class="game-card" data-name="Chess Online" data-url="https://example.com/chess-online">
+  <div class="game-card" data-name="Chess Online">
     <div class="game-title">Chess Online</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/chess-online"></iframe>
   </div>
-
-  <div class="game-card" data-name="Connect 4 Online" data-url="https://example.com/connect-4-online">
+  <div class="game-card" data-name="Connect 4 Online">
     <div class="game-title">Connect 4 Online</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/connect-4-online"></iframe>
   </div>
-
-  <div class="game-card" data-name="Minesweeper" data-url="https://example.com/minesweeper">
+  <div class="game-card" data-name="Minesweeper">
     <div class="game-title">Minesweeper</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/minesweeper"></iframe>
   </div>
-
-  <div class="game-card" data-name="2048" data-url="https://example.com/2048">
+  <div class="game-card" data-name="2048">
     <div class="game-title">2048</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/2048"></iframe>
   </div>
-
 </div>
 
-<!-- ========================================================= -->
-<!-- 🎲 BOARD GAMES (5) -->
-<!-- ========================================================= -->
+<!-- 🎲 BOARD GAMES -->
 <h2 class="section-title">🎲 Board Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Backgammon Lite" data-url="https://example.com/backgammon-lite">
+  <div class="game-card" data-name="Backgammon Lite">
     <div class="game-title">Backgammon Lite</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/backgammon-lite"></iframe>
   </div>
-
-  <div class="game-card" data-name="Ludo Online" data-url="https://example.com/ludo-online">
+  <div class="game-card" data-name="Ludo Online">
     <div class="game-title">Ludo Online</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/ludo-online"></iframe>
   </div>
-
-  <div class="game-card" data-name="Tic Tac Toe Master" data-url="https://example.com/tic-tac-toe-master">
+  <div class="game-card" data-name="Tic Tac Toe Master">
     <div class="game-title">Tic Tac Toe Master</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/tic-tac-toe-master"></iframe>
   </div>
-
-  <div class="game-card" data-name="Othello Lite" data-url="https://example.com/othello-lite">
+  <div class="game-card" data-name="Othello Lite">
     <div class="game-title">Othello Lite</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/othello-lite"></iframe>
   </div>
-
-  <div class="game-card" data-name="Dots and Boxes" data-url="https://example.com/dots-and-boxes">
+  <div class="game-card" data-name="Dots and Boxes">
     <div class="game-title">Dots and Boxes</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/dots-and-boxes"></iframe>
   </div>
-
 </div>
 
-<!-- ========================================================= -->
-<!-- 🧩 PUZZLE GAMES (5) -->
-<!-- ========================================================= -->
+<!-- 🧩 PUZZLE GAMES -->
 <h2 class="section-title">🧩 Puzzle Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Sliding Puzzle" data-url="https://example.com/sliding-puzzle">
+  <div class="game-card" data-name="Sliding Puzzle">
     <div class="game-title">Sliding Puzzle</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/sliding-puzzle"></iframe>
   </div>
-
-  <div class="game-card" data-name="Match 3 Candy" data-url="https://example.com/match-3-candy">
+  <div class="game-card" data-name="Match 3 Candy">
     <div class="game-title">Match 3 Candy</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/match-3-candy"></iframe>
   </div>
-
-  <div class="game-card" data-name="Color Lines" data-url="https://example.com/color-lines">
+  <div class="game-card" data-name="Color Lines">
     <div class="game-title">Color Lines</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/color-lines"></iframe>
   </div>
-
-  <div class="game-card" data-name="Block Puzzle" data-url="https://example.com/block-puzzle">
+  <div class="game-card" data-name="Block Puzzle">
     <div class="game-title">Block Puzzle</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/block-puzzle"></iframe>
   </div>
-
-  <div class="game-card" data-name="Memory Match" data-url="https://example.com/memory-match">
+  <div class="game-card" data-name="Memory Match">
     <div class="game-title">Memory Match</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/memory-match"></iframe>
   </div>
-
 </div>
 
-<!-- ========================================================= -->
-<!-- ⚡ EXTRA GAMES (10) -->
-<!-- ========================================================= -->
+<!-- ⚡ EXTRA GAMES -->
 <h2 class="section-title">⚡ Extra Games</h2>
 <div class="game-grid">
-
-  <div class="game-card" data-name="Extra Game 1" data-url="https://example.com/extra1">
+  <div class="game-card" data-name="Extra Game 1">
     <div class="game-title">Extra Game 1</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/extra1"></iframe>
   </div>
-
-  <div class="game-card" data-name="Extra Game 2" data-url="https://example.com/extra2">
+  <div class="game-card" data-name="Extra Game 2">
     <div class="game-title">Extra Game 2</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/extra2"></iframe>
   </div>
-
-  <div class="game-card" data-name="Extra Game 3" data-url="https://example.com/extra3">
+  <div class="game-card" data-name="Extra Game 3">
     <div class="game-title">Extra Game 3</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/extra3"></iframe>
   </div>
-
-  <div class="game-card" data-name="Extra Game 4" data-url="https://example.com/extra4">
+  <div class="game-card" data-name="Extra Game 4">
     <div class="game-title">Extra Game 4</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/extra4"></iframe>
   </div>
-
-  <div class="game-card" data-name="Extra Game 5" data-url="https://example.com/extra5">
+  <div class="game-card" data-name="Extra Game 5">
     <div class="game-title">Extra Game 5</div>
-    <button class="play-button">Play</button>
+    <iframe src="https://example.com/extra5"></iframe>
   </div>
+  <div class="game-card" data-name="Extra Game 6">
+    <div class="game-title">Extra Game 6</div>
+    <iframe src="https://example.com/extra6"></iframe>
+  </div>
+  <div class="game-card" data-name="Extra Game 7">
+    <div class="game-title">Extra Game 7</div>
+    <iframe src="https://example.com/extra7"></iframe>
+  </div>
+  <div class="game-card" data-name="Extra Game 8">
+    <div class="game-title">Extra Game 8</div>
+    <iframe src="https://example.com/extra8"></iframe>
+  </div>
+  <div class="game-card" data-name="Extra Game 9">
+    <div class="game-title">Extra Game 9</div>
+    <iframe src="https://example.com/extra9"></iframe>
+  </div>
+  <div class="game-card" data-name="Extra Game 10">
+    <div class="game-title">Extra Game 10</div>
+    <iframe src="https://example.com/extra10"></iframe>
+  </div>
+</div>
 
-  <div class="game-card
+</body>
+</html>
