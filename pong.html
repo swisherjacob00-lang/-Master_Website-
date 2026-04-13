@@ -45,15 +45,15 @@ let ball = {
   dy: -4
 };
 
-// Bricks
+// Brick settings
 const brick = {
-  rows: 5,
-  cols: 8,
-  width: 80,
-  height: 25,
+  rows: 6,
+  cols: 10,
+  width: 70,
+  height: 20,
   padding: 10,
   offsetTop: 40,
-  offsetLeft: 35
+  offsetLeft: 25
 };
 
 let bricks = [];
@@ -130,6 +130,10 @@ function moveBall() {
     ball.x < paddle.x + paddle.width
   ) {
     ball.dy *= -1;
+
+    // Add spin based on where the ball hits the paddle
+    let hitPoint = ball.x - (paddle.x + paddle.width / 2);
+    ball.dx = hitPoint * 0.15;
   }
 
   // Bottom reset
