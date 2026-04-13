@@ -60,7 +60,6 @@
     border-color: #0ff;
   }
 
-  /* Game Viewer */
   #viewer {
     width: 100%;
     height: 600px;
@@ -96,7 +95,7 @@
   <input type="text" id="search" placeholder="Search for a game...">
 </div>
 
-<h2 class="section-title">Popular Games</h2>
+<h2 class="section-title">Games</h2>
 
 <div class="game-grid" id="game-list">
 
@@ -126,7 +125,6 @@
 
 </div>
 
-<!-- Game Viewer -->
 <button id="closeBtn">Close Game</button>
 <div id="viewer">
   <iframe id="gameFrame"></iframe>
@@ -139,7 +137,6 @@
   const gameFrame = document.getElementById("gameFrame");
   const closeBtn = document.getElementById("closeBtn");
 
-  // Search filter
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
     gameCards.forEach(card => {
@@ -148,7 +145,6 @@
     });
   });
 
-  // Load game inside viewer
   gameCards.forEach(card => {
     card.addEventListener("click", () => {
       const url = card.getAttribute("data-url");
@@ -159,7 +155,6 @@
     });
   });
 
-  // Close game
   closeBtn.addEventListener("click", () => {
     viewer.style.display = "none";
     closeBtn.style.display = "none";
