@@ -5,11 +5,54 @@
   <title>¡Jacob's Master Gaming Hub!</title>
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #1a4fa3, #2f6fd1, #4a8df0);
       color: white;
+      display: flex;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+      width: 240px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      padding-top: 20px;
+      border-right: 2px solid rgba(255,255,255,0.2);
+    }
+
+    #sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .side-link {
+      display: block;
+      padding: 12px 20px;
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .side-link:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* MAIN CONTENT */
+    #main {
+      margin-left: 240px;
+      width: calc(100% - 240px);
     }
 
     header {
@@ -31,12 +74,30 @@
       backdrop-filter: blur(6px);
       border-top: 3px solid white;
       display: none;
+      position: relative;
     }
 
     #game-frame {
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    #fullscreen-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 10px 18px;
+      background: #1e88e5;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #fullscreen-btn:hover {
+      background: #1565c0;
     }
 
     #search-container {
@@ -114,11 +175,32 @@
 </head>
 <body>
 
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <h2>Categories</h2>
+  <a class="side-link" href="#topgames">🏁 Top Games</a>
+  <a class="side-link" href="#featured">🔥 Featured</a>
+  <a class="side-link" href="#arcade2">🎯 Arcade II</a>
+  <a class="side-link" href="#arcade3">🚓 Arcade III</a>
+  <a class="side-link" href="#arcade4">🚗 Arcade IV</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main">
+
 <header>¡Jacob's Master Gaming Hub!</header>
 
-<!-- EMBEDDED GAME VIEWER -->
+<!-- GAME VIEWER -->
 <div id="game-frame-container">
-  <iframe id="game-frame"></iframe>
+  <iframe 
+    id="game-frame"
+    allow="fullscreen"
+    allowfullscreen
+    webkitallowfullscreen
+    mozallowfullscreen>
+  </iframe>
+
+  <button id="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
 </div>
 
 <script>
@@ -131,10 +213,19 @@
 
     window.scrollTo({ top: frameContainer.offsetTop - 20, behavior: "smooth" });
   }
+
+  function toggleFullscreen() {
+    const frame = document.getElementById("game-frame");
+
+    if (frame.requestFullscreen) frame.requestFullscreen();
+    else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
+    else if (frame.mozRequestFullScreen) frame.mozRequestFullScreen();
+    else if (frame.msRequestFullscreen) frame.msRequestFullscreen();
+  }
 </script>
 
 <!-- TOP GAMES -->
-<h2 class="section-title">🏁 Top Games</h2>
+<h2 id="topgames" class="section-title">🏁 Top Games</h2>
 <div class="game-grid">
 
   <div class="game-card" data-name="PolyTrack">
@@ -154,7 +245,7 @@
 </p>
 
 <!-- FEATURED -->
-<h2 class="section-title">🔥 Featured Games</h2>
+<h2 id="featured" class="section-title">🔥 Featured Games</h2>
 <div class="game-grid">
 
   <div class="game-card" data-name="Slope">
@@ -185,7 +276,7 @@
 </div>
 
 <!-- ARCADE II -->
-<h2 class="section-title">🎯 Arcade II</h2>
+<h2 id="arcade2" class="section-title">🎯 Arcade II</h2>
 <div class="game-grid">
 
   <div class="game-card" data-name="Madalin Stunt Cars 3">
@@ -195,7 +286,7 @@
 
   <div class="game-card" data-name="Drift Hunters">
     <div class="game-title">Drift Hunters</div>
-    <button class="play-btn" onclick="loadGame('httpsortrideonline.github.io/go/class-554.html')">Play</button>
+    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-554.html')">Play</button>
   </div>
 
   <div class="game-card" data-name="Moto X3M">
@@ -211,7 +302,7 @@
 </div>
 
 <!-- ARCADE III -->
-<h2 class="section-title">🚓 Arcade III</h2>
+<h2 id="arcade3" class="section-title">🚓 Arcade III</h2>
 <div class="game-grid">
 
   <div class="game-card" data-name="Police Chase Simulator">
@@ -232,7 +323,7 @@
 </div>
 
 <!-- ARCADE IV -->
-<h2 class="section-title">🚗 Arcade IV</h2>
+<h2 id="arcade4" class="section-title">🚗 Arcade IV</h2>
 <div class="game-grid">
 
   <div class="game-card" data-name="Car Games Collection">
@@ -261,5 +352,6 @@
   document.getElementById("search").addEventListener("input", filterGames);
 </script>
 
+</div>
 </body>
 </html>
