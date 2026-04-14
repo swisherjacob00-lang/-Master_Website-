@@ -78,29 +78,22 @@
       margin-bottom: 10px;
     }
 
-    .fullscreen-btn {
+    .play-btn {
       display: block;
       margin: 0 auto 10px auto;
-      padding: 6px 12px;
+      padding: 8px 14px;
       font-size: 14px;
       border-radius: 6px;
       border: none;
       cursor: pointer;
       background: #1e88e5;
       color: white;
+      text-align: center;
+      text-decoration: none;
     }
 
-    .fullscreen-btn:hover {
+    .play-btn:hover {
       background: #1565c0;
-    }
-
-    iframe {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16/9;
-      border: none;
-      border-radius: 8px;
-      background: black;
     }
   </style>
 </head>
@@ -114,15 +107,12 @@
 
   <div class="game-card" data-name="PolyTrack">
     <div class="game-title">PolyTrack</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/polytrack/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
-  <!-- ⭐ UPDATED BASKET RANDOM ⭐ -->
   <div class="game-card" data-name="Basket Random">
     <div class="game-title">Basket Random</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://google-pacman.github.io/play/basket-random.html" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
 </div>
@@ -137,26 +127,22 @@
 
   <div class="game-card" data-name="Slope">
     <div class="game-title">Slope</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/slope/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
   <div class="game-card" data-name="Two Player Slope">
     <div class="game-title">Two Player Slope</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/slope-2/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
   <div class="game-card" data-name="Tag">
     <div class="game-title">Tag</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/tag/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
   <div class="game-card" data-name="YoHoHo.io">
     <div class="game-title">YoHoHo.io</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/yohoho/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
 </div>
@@ -177,14 +163,6 @@
   }
 
   document.getElementById("search").addEventListener("input", filterGames);
-
-  function openFullscreen(btn) {
-    const iframe = btn.parentElement.querySelector("iframe");
-    if (!iframe) return;
-    if (iframe.requestFullscreen) iframe.requestFullscreen();
-    else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
-    else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
-  }
 </script>
 
 <!-- ARCADE I -->
@@ -193,131 +171,20 @@
 
   <div class="game-card" data-name="Dino Run">
     <div class="game-title">Dino Run</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/dino/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
   <div class="game-card" data-name="Space Invaders">
     <div class="game-title">Space Invaders</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/space-invaders/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
   <div class="game-card" data-name="Asteroids">
     <div class="game-title">Asteroids</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/asteroids/" allowfullscreen></iframe>
+    <a class="play-btn" href="#" target="_blank">Play</a>
   </div>
 
   <div class="game-card" data-name="Breakout">
     <div class="game-title">Breakout</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/breakout/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Pac-Man">
-    <div class="game-title">Pac-Man</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/pacman/" allowfullscreen></iframe>
-  </div>
-
-</div>
-
-<!-- ARCADE II -->
-<h2 class="section-title">🎮 Arcade II</h2>
-<div class="game-grid">
-
-  <div class="game-card" data-name="Tetris">
-    <div class="game-title">Tetris</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/tetris/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Snake">
-    <div class="game-title">Snake</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/snake/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Flappy Bird">
-    <div class="game-title">Flappy Bird</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/flappy/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Cube Runner">
-    <div class="game-title">Cube Runner</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/cube-runner/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Jetpack Joyride">
-    <div class="game-title">Jetpack Joyride</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/jetpack-joyride/" allowfullscreen></iframe>
-  </div>
-
-</div>
-
-<!-- ARCADE III -->
-<h2 class="section-title">🎮 Arcade III</h2>
-<div class="game-grid">
-
-  <div class="game-card" data-name="Geometry Dash">
-    <div class="game-title">Geometry Dash</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/geometry-dash/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Run Game">
-    <div class="game-title">Run Game</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/run/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Helix Jump">
-    <div class="game-title">Helix Jump</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/helix-jump/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Stack">
-    <div class="game-title">Stack</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/stack/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Knife Hit">
-    <div class="game-title">Knife Hit</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/knife-hit/" allowfullscreen></iframe>
-  </div>
-
-</div>
-
-<!-- ARCADE IV -->
-<h2 class="section-title">🎮 Arcade IV</h2>
-<div class="game-grid">
-
-  <div class="game-card" data-name="Ball Fall 3D">
-    <div class="game-title">Ball Fall 3D</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/ball-fall/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Slope Clone">
-    <div class="game-title">Slope Clone</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/slope-clone/" allowfullscreen></iframe>
-  </div>
-
-  <div class="game-card" data-name="Slope 2 Clone">
-    <div class="game-title">Slope 2 Clone</div>
-    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
-    <iframe src="https://shortrideonline.github.io/games/slope-2-clone/" allowfullscreen></iframe>
-  </div>
-
-</div>
-
-</body>
-</html>
+    <a class="play-btn" href="#" target="_blank">Play</a>
+  </div>—
