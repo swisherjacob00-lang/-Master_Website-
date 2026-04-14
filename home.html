@@ -1,163 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>¡Jacob's Master Gaming Hub!</title>
+  <meta charset="UTF-8">
+  <title>¡Jacob's Master Gaming Hub!</title>
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0d0d0d;
-    color: #e6e6e6;
-  }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1a4fa3, #2f6fd1, #4a8df0);
+      color: white;
+    }
 
-  header {
-    background: #111;
-    padding: 25px;
-    text-align: center;
-    font-size: 34px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #222;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
 
-  #search-container {
-    text-align: center;
-    margin: 25px;
-  }
+    #search-container {
+      text-align: center;
+      margin: 20px;
+    }
 
-  #search {
-    width: 60%;
-    max-width: 500px;
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 8px;
-    border: 2px solid #333;
-    background: #1a1a1a;
-    color: #e6e6e6;
-    outline: none;
-  }
+    #search {
+      width: 60%;
+      max-width: 500px;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
 
-  .section-title {
-    font-size: 26px;
-    margin: 20px;
-    padding-left: 12px;
-    border-left: 5px solid #4a90e2;
-    font-weight: bold;
-  }
+    .section-title {
+      font-size: 26px;
+      margin: 20px;
+      border-left: 5px solid white;
+      padding-left: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      backdrop-filter: blur(4px);
+    }
 
-  .game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    padding: 20px;
-  }
+    .suggested-label {
+      font-size: 20px;
+      margin: 0 20px;
+      opacity: 0.85;
+      font-style: italic;
+    }
 
-  .game-card {
-    background: #1a1a1a;
-    padding: 18px;
-    border-radius: 12px;
-    border: 2px solid #333;
-    transition: 0.2s;
-  }
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
 
-  .game-card:hover {
-    transform: translateY(-4px);
-    border-color: #4a90e2;
-  }
+    .game-card {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(4px);
+    }
 
-  .game-title {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 12px;
-  }
+    .game-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-  .play-btn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 16px;
-    font-size: 15px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    background: #4a90e2;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    transition: 0.2s;
-  }
+    .fullscreen-btn {
+      display: block;
+      margin: 0 auto 10px auto;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #1e88e5;
+      color: white;
+    }
 
-  .play-btn:hover {
-    background: #357ac9;
-  }
-</style>
+    .fullscreen-btn:hover {
+      background: #1565c0;
+    }
+
+    iframe {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 8px;
+      background: black;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>¡Jacob's Master Gaming Hub!</header>
 
-<div id="search-container">
-  <input type="text" id="search" placeholder="Search for a game...">
-</div>
-
-<!-- ⭐ TOP FOUR GAMES (YOU INSERT SHORTRIDE LINKS) ⭐ -->
+<!-- TOP GAMES -->
 <h2 class="section-title">🏁 Top Games</h2>
-
 <div class="game-grid">
 
   <div class="game-card" data-name="PolyTrack">
     <div class="game-title">PolyTrack</div>
-    <a class="play-btn" href="https://shortride.github.io/POLYTRACK" target="_blank">Play</a>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/polytrack/" allowfullscreen></iframe>
   </div>
 
   <div class="game-card" data-name="Basket Random">
     <div class="game-title">Basket Random</div>
-    <a class="play-btn" href="https://shortride.github.io/BASKETRANDOM" target="_blank">Play</a>
-  </div>
-
-  <div class="game-card" data-name="Slope">
-    <div class="game-title">Slope</div>
-    <a class="play-btn" href="https://shortride.github.io/SLOPE" target="_blank">Play</a>
-  </div>
-
-  <div class="game-card" data-name="Flappy Bird">
-    <div class="game-title">Flappy Bird</div>
-    <a class="play-btn" href="https://shortride.github.io/FLAPPY" target="_blank">Play</a>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/basketrandom/" allowfullscreen></iframe>
   </div>
 
 </div>
 
-<!-- ⭐ MAIN GAME LIST (ALSO SHORTRIDE LINKS) ⭐ -->
-<h2 class="section-title">🎮 All Games</h2>
+<p class="suggested-label">
+  Suggested by Alex Bahena — P.S. Franklin was here first!! Get Cookied!! Jake also beat you!!
+</p>
 
+<!-- FEATURED -->
+<h2 class="section-title">🔥 Featured Games</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Snake">
-    <div class="game-title">Snake</div>
-    <a class="play-btn" href="https://shortride.github.io/SNAKE" target="_blank">Play</a>
+  <div class="game-card" data-name="Slope">
+    <div class="game-title">Slope</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/slope/" allowfullscreen></iframe>
   </div>
 
-  <div class="game-card" data-name="Run Game">
-    <div class="game-title">Run Game</div>
-    <a class="play-btn" href="https://shortride.github.io/RUN" target="_blank">Play</a>
+  <div class="game-card" data-name="Two Player Slope">
+    <div class="game-title">Two Player Slope</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/slope2/" allowfullscreen></iframe>
   </div>
 
-  <div class="game-card" data-name="Stack">
-    <div class="game-title">Stack</div>
-    <a class="play-btn" href="https://shortride.github.io/STACK" target="_blank">Play</a>
+  <div class="game-card" data-name="Tag">
+    <div class="game-title">Tag</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/tag/" allowfullscreen></iframe>
   </div>
 
-  <div class="game-card" data-name="Helix Jump">
-    <div class="game-title">Helix Jump</div>
-    <a class="play-btn" href="https://shortride.github.io/HELIX" target="_blank">Play</a>
+  <div class="game-card" data-name="YoHoHo.io">
+    <div class="game-title">YoHoHo.io</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/yohoho/" allowfullscreen></iframe>
   </div>
 
+</div>
+
+<div id="search-container">
+  <input type="text" id="search" placeholder="Search for a game...">
 </div>
 
 <script>
@@ -172,7 +176,147 @@
   }
 
   document.getElementById("search").addEventListener("input", filterGames);
+
+  function openFullscreen(btn) {
+    const iframe = btn.parentElement.querySelector("iframe");
+    if (!iframe) return;
+    if (iframe.requestFullscreen) iframe.requestFullscreen();
+    else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+    else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
+  }
 </script>
+
+<!-- ARCADE I -->
+<h2 class="section-title">🎮 Arcade I</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Dino Run">
+    <div class="game-title">Dino Run</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/dino/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Space Invaders">
+    <div class="game-title">Space Invaders</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/spaceinvaders/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Asteroids">
+    <div class="game-title">Asteroids</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/asteroids/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Breakout">
+    <div class="game-title">Breakout</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="httpsortride.github.io/games/breakout/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Pac-Man">
+    <div class="game-title">Pac-Man</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/pacman/" allowfullscreen></iframe>
+  </div>
+
+</div>
+
+<!-- ARCADE II -->
+<h2 class="section-title">🎮 Arcade II</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Tetris">
+    <div class="game-title">Tetris</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/tetris/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Snake">
+    <div class="game-title">Snake</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/snake/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Flappy Bird">
+    <div class="game-title">Flappy Bird</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/flappy/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Cube Runner">
+    <div class="game-title">Cube Runner</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/cuberunner/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Jetpack Joyride Clone">
+    <div class="game-title">Jetpack Joyride Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/jetpack/" allowfullscreen></iframe>
+  </div>
+
+</div>
+
+<!-- ARCADE III -->
+<h2 class="section-title">🎮 Arcade III</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Geometry Dash Clone">
+    <div class="game-title">Geometry Dash Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/geometrydash/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Run Game">
+    <div class="game-title">Run Game</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/run/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Helix Jump">
+    <div class="game-title">Helix Jump</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/helixjump/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Stack">
+    <div class="game-title">Stack</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/stack/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Knife Hit">
+    <div class="game-title">Knife Hit</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/knifehit/" allowfullscreen></iframe>
+  </div>
+
+</div>
+
+<!-- ARCADE IV -->
+<h2 class="section-title">🎮 Arcade IV</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Ball Fall 3D">
+    <div class="game-title">Ball Fall 3D</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/ballfall/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Slope Clone">
+    <div class="game-title">Slope Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/slopeclone/" allowfullscreen></iframe>
+  </div>
+
+  <div class="game-card" data-name="Slope 2 Clone">
+    <div class="game-title">Slope 2 Clone</div>
+    <button class="fullscreen-btn" onclick="openFullscreen(this)">Fullscreen</button>
+    <iframe src="https://shortride.github.io/games/slope2clone/" allowfullscreen></iframe>
+  </div>
+
+</div>
 
 </body>
 </html>
