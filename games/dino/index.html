@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dino Run</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    #gameCanvas {
+      background: white;
+      display: block;
+      margin: 0 auto;
+      border-bottom: 3px solid #444;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="300"></canvas>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let dino = {
+  x: 50,
+  y: 220,
+  width: 40,
+  height: 40,
+  dy: 0,
+  jumping: false
+};
+
+let obstacles = [];
+let frame = 0;
+let score = 0;
+
+function jump() {
+  if (!dino.jumping) {
+    dino.dy = -12;
+    dino.jumping = true;
+  }
+}
+
+document.addEventListener("keydown", jump);
+document.addEventListener("click", jump);
+
+function update() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  dino.y += dino.dy;
+  dino.dy += 0.6;
+
+  if (dino.y > 220) {
+    dino.y = 220;
+    dino.dy = 0;
+    dino.jumping = false;
+  }
+
+  ctx.fillStyle = "#333";
+  ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+
+  if (frame % 90 === 0) {
+    obstacles.push({
+      x: 800,
+      y: 230,
+      width: 20,
+      height: 30
+    });
+  }
+
+  for (let i = obstacles.length - 1; i >= 0; i--) {
+    let ob = obstacles[i];
+    ob.x -= 6;
+
+    ctx.fillStyle = "#555";
+    ctx.fillRect(ob.x, ob.y, ob.width, ob.height);
+
+    if (
+      dino.x < ob.x + ob.width &&
+      dino.x + dino.width > ob.x &&
+      dino.y < ob.y + ob.height &&
+      dino.y + dino.height > ob.y
+    ) {
+      alert("Game Over! Score: " + score);
+      document.location.reload();
+    }
+
+    if (ob.x + ob.width < 0) {
+      obstacles.splice(i, 1);
+      score++;
+    }
+  }
+
+  ctx.fillStyle = "#000";
+  ctx.font = "20px Arial";
+  ctx.fillText("Score: " + score, 650, 30);
+
+  frame++;
+  requestAnimationFrame(update);
+}
+
+update();
+</script>
+
+</body>
+</html>
