@@ -24,6 +24,21 @@
       backdrop-filter: blur(6px);
     }
 
+    #game-frame-container {
+      width: 100%;
+      height: 600px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      border-top: 3px solid white;
+      display: none;
+    }
+
+    #game-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     #search-container {
       text-align: center;
       margin: 20px;
@@ -101,18 +116,35 @@
 
 <header>¡Jacob's Master Gaming Hub!</header>
 
+<!-- EMBEDDED GAME VIEWER -->
+<div id="game-frame-container">
+  <iframe id="game-frame"></iframe>
+</div>
+
+<script>
+  function loadGame(url) {
+    const frameContainer = document.getElementById("game-frame-container");
+    const frame = document.getElementById("game-frame");
+
+    frame.src = url;
+    frameContainer.style.display = "block";
+
+    window.scrollTo({ top: frameContainer.offsetTop - 20, behavior: "smooth" });
+  }
+</script>
+
 <!-- TOP GAMES -->
 <h2 class="section-title">🏁 Top Games</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="PolyTrack" data-link="https://example.com/polytrack">
+  <div class="game-card" data-name="PolyTrack">
     <div class="game-title">PolyTrack</div>
-    <a class="play-btn" href="https://example.com/polytrack" target="_blank">Play</a>
+    <button class="play-btn" onclick="loadGame('https://poly-trackonline.github.io/')">Play</button>
   </div>
 
-  <div class="game-card" data-name="Basket Random" data-link="https://example.com/basketrandom">
+  <div class="game-card" data-name="Basket Random">
     <div class="game-title">Basket Random</div>
-    <a class="play-btn" href="https://example.com/basketrandom" target="_blank">Play</a>
+    <button class="play-btn" onclick="loadGame('https://google-pacman.github.io/play/basket-random.html')">Play</button>
   </div>
 
 </div>
@@ -125,28 +157,34 @@
 <h2 class="section-title">🔥 Featured Games</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Slope" data-link="https://example.com/slope">
+  <div class="game-card" data-name="Slope">
     <div class="game-title">Slope</div>
-    <a class="play-btn" href="https://example.com/slope" target="_blank">Play</a>
+    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-450.html')">Play</button>
   </div>
 
-  <div class="game-card" data-name="Two Player Slope" data-link="https://example.com/twoplayerslope">
+  <div class="game-card" data-name="Two Player Slope">
     <div class="game-title">Two Player Slope</div>
-    <a class="play-btn" href="https://example.com/twoplayerslope" target="_blank">Play</a>
+    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-800.html')">Play</button>
   </div>
 
-  <div class="game-card" data-name="Tag" data-link="https://example.com/tag">
+  <div class="game-card" data-name="Tag">
     <div class="game-title">Tag</div>
-    <a class="play-btn" href="https://example.com/tag" target="_blank">Play</a>
+    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-633.html')">Play</button>
   </div>
 
-  <div class="game-card" data-name="YoHoHo.io" data-link="https://yohoho.io">
-    <div class="game-title">YoHoHo.io</div>
-    <a class="play-btn" href="https://yohoho.io" target="_blank">Play</a>
+  <div class="game-card" data-name="Stickman Hook">
+    <div class="game-title">Stickman Hook</div>
+    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-406.html')">Play</button>
+  </div>
+
+  <div class="game-card" data-name="Off-Road Cargo Rain Simulator">
+    <div class="game-title">Off-Road Cargo Rain Simulator</div>
+    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-313.html')">Play</button>
   </div>
 
 </div>
 
+<!-- SEARCH BAR -->
 <div id="search-container">
   <input type="text" id="search" placeholder="Search for a game...">
 </div>
@@ -165,28 +203,5 @@
   document.getElementById("search").addEventListener("input", filterGames);
 </script>
 
-<!-- ARCADE I -->
-<h2 class="section-title">🎮 Arcade I</h2>
-<div class="game-grid">
-
-  <div class="game-card" data-name="Dino Run" data-link="https://example.com/dinorun">
-    <div class="game-title">Dino Run</div>
-    <a class="play-btn" href="https://example.com/dinorun" target="_blank">Play</a>
-  </div>
-
-  <div class="game-card" data-name="Space Invaders" data-link="https://example.com/spaceinvaders">
-    <div class="game-title">Space Invaders</div>
-    <a class="play-btn" href="https://example.com/spaceinvaders" target="_blank">Play</a>
-  </div>
-
-  <div class="game-card" data-name="Asteroids" data-link="https://example.com/asteroids">
-    <div class="game-title">Asteroids</div>
-    <a class="play-btn" href="https://example.com/asteroids" target="_blank">Play</a>
-  </div>
-
-  <div class="game-card" data-name="Breakout" data-link="https://example.com/breakout">
-    <div class="game-title">Breakout</div>
-    <a class="play-btn" href="https://example.com/breakout" target="_blank">Play</a>
-  </div>
-
-</div>
+</body>
+</html>
