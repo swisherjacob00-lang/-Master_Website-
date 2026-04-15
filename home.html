@@ -70,6 +70,36 @@
       box-shadow: 0 0 12px #4FE3E9;
     }
 
+    /* WELCOME BOX */
+    .welcome-box {
+      margin: 20px auto;
+      width: 80%;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #4FE3E9;
+      box-shadow: 0 0 12px #4FE3E9;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    /* CREDIT BOX */
+    .credit-box {
+      margin: 10px auto 25px auto;
+      width: 70%;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #4FE3E9;
+      box-shadow: 0 0 12px #4FE3E9;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      backdrop-filter: blur(4px);
+    }
+
     /* GAME VIEWER */
     #game-frame-container {
       width: 100%;
@@ -200,6 +230,20 @@
 
 <header>¡Jacob's Master Gaming Hub!</header>
 
+<!-- WELCOME BOX -->
+<div class="welcome-box">
+  Great!! You made it here!! I'm so happy that you were able to find this amazing website with lots of fun games to play that are all unblocked.
+  <br><br>
+  If you want to help add games, click this link to fill out a Google form to suggest games.
+  <br><br>
+  If I successfully add your game to the website, you will be added to the section of people who suggested games.
+</div>
+
+<!-- CREDIT BOX -->
+<div class="credit-box">
+  Website created, made, and edited by Jacob Swisher!!!
+</div>
+
 <!-- GAME VIEWER -->
 <div id="game-frame-container">
   <iframe 
@@ -251,7 +295,7 @@
 </div>
 
 <p class="suggested-label">
-  Suggested by Alex Bahena — P.S. Franklin was here first!! Get Cookied!! Jake also beat you!!
+  These people suggested games for the website!!!: Alex, Franklin, Jake.
 </p>
 
 <!-- FEATURED -->
@@ -327,41 +371,9 @@
 
   <div class="game-card" data-name="Escape Road City">
     <div class="game-title">Escape Road City</div>
-    <button class="play-btn" onclick="loadGame('https://escaperoad-2.github.io/escape-road-city')">Play</button>
+    <button class="play-btn" onclick="loadGame('https://escaperoadx.github.io/')">Play</button>
   </div>
 
 </div>
 
 <!-- ARCADE IV -->
-<h2 id="arcade4" class="section-title">🚗 Arcade IV</h2>
-<div class="game-grid">
-
-  <div class="game-card" data-name="Car Games Collection">
-    <div class="game-title">Car Games Collection</div>
-    <button class="play-btn" onclick="loadGame('https://githubgames.gitlab.io/category/car.html')">Play</button>
-  </div>
-
-</div>
-
-<!-- SEARCH BAR -->
-<div id="search-container">
-  <input type="text" id="search" placeholder="Search for a game...">
-</div>
-
-<script>
-  function filterGames() {
-    const query = document.getElementById("search").value.toLowerCase();
-    const cards = document.querySelectorAll(".game-card");
-
-    cards.forEach(card => {
-      const name = card.getAttribute("data-name").toLowerCase();
-      card.style.display = name.includes(query) ? "block" : "none";
-    });
-  }
-
-  document.getElementById("search").addEventListener("input", filterGames);
-</script>
-
-</div>
-</body>
-</html>
