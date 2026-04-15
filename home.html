@@ -234,7 +234,11 @@
 <div class="welcome-box">
   Great!! You made it here!! I'm so happy that you were able to find this amazing website with lots of fun games to play that are all unblocked.
   <br><br>
-  If you want to help add games, click this link to fill out a Google form to suggest games.
+  If you want to help add games, click this 
+  <a href="https://forms.gle/YKM6UDoVU3dX52AQ6" target="_blank" style="color:#4FE3E9; font-weight:bold; text-decoration:underline;">
+    link
+  </a> 
+  to fill out a Google form to suggest games.
   <br><br>
   If I successfully add your game to the website, you will be added to the section of people who suggested games.
 </div>
@@ -377,3 +381,35 @@
 </div>
 
 <!-- ARCADE IV -->
+<h2 id="arcade4" class="section-title">🚗 Arcade IV</h2>
+<div class="game-grid">
+
+  <div class="game-card" data-name="Car Games Collection">
+    <div class="game-title">Car Games Collection</div>
+    <button class="play-btn" onclick="loadGame('https://githubgames.gitlab.io/category/car.html')">Play</button>
+  </div>
+
+</div>
+
+<!-- SEARCH BAR -->
+<div id="search-container">
+  <input type="text" id="search" placeholder="Search for a game...">
+</div>
+
+<script>
+  function filterGames() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const cards = document.querySelectorAll(".game-card");
+
+    cards.forEach(card => {
+      const name = card.getAttribute("data-name").toLowerCase();
+      card.style.display = name.includes(query) ? "block" : "none";
+    });
+  }
+
+  document.getElementById("search").addEventListener("input", filterGames);
+</script>
+
+</div>
+</body>
+</html>
