@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Geometry Dash Light</title>
+  <style>
+    body {
+      margin: 0;
+      background: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 20px;
+      color: #61dafb;
+    }
+
+    #gameCanvas {
+      background: linear-gradient(#1e88e5, #0d47a1);
+      border: 2px solid #333;
+      margin-bottom: 10px;
+    }
+
+    #info {
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Geometry Dash Light</h1>
+  <canvas id="gameCanvas" width="700" height="400"></canvas>
+  <div id="info">Press SPACE or click to jump. Avoid the spikes!</div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const groundY = canvas.height - 60;
+
+    const player = {
+      x: 80,
+      y: groundY - 40,
+      width: 40,
+      height: 40,
+      color: '#ff5252',
+      vy: 0,
+      gravity: 0.8,
+      jumpForce: -14,
+      onGround: true
+    };
+
+    let obstacles = [];
+    let gameSpeed = 5;
+    let spawnTimer = 0;
+    let spawnInterval = 90;
+    let score = 0;
+    let gameOver = false;
+
+    function spawnObstacle() {
+      const width = 30;
+      const height = 40;
+      obstacles.push({
+        x: canvas.width + 20,
+        y: groundY - height,
+        width,
+        height,
+        color: '#000'
+      });
+    }
+
+    function resetGame() {
+      obstacles = [];
+      score = 0;
+      gameSpeed = 5;
+      spawnTimer = 0;
+      gameOver = false;
+      player.y = groundY - player.height;
+      player.vy = 0;
+      player.onGround = true;
+      loop();
+    }
+
+    function jump() {
+      if (player.onGround && !gameOver) {
+        player.vy = player.jumpForce;
+        player.onGround = false;
+      } else if (gameOver) {
+        resetGame();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        jump();
+      }
+    });
+
+    canvas.addEventListener('mousedown', jump);
+
+    function update() {
+      if (gameOver) return;
+
+      // Player physics
+      player.vy += player.gravity;
+      player.y += player.vy;
+
+      if (player.y + player.height >= groundY) {
+        player.y = groundY - player.height;
+        player.vy = 0;
+        player.onGround = true;
+      }
+
+      // Spawn obstacles
+      spawnTimer++;
+      if (spawnTimer >= spawnInterval) {
+        spawnObstacle();
+        spawnTimer = 0;
+        if (spawnInterval > 50) spawnInterval -= 1;
+        gameSpeed += 0.05;
+      }
+
+      // Move obstacles
+      for (let i = obstacles.length - 1; i >= 0; i--) {
+        const ob = obstacles[i];
+        ob.x -= gameSpeed;
+
+        // Collision
+        if (
+          player.x < ob.x + ob.width &&
+          player.x + player.width > ob.x &&
+          player.y < ob.y + ob.height &&
+          player.y + player.height > ob.y
+        ) {
+          gameOver = true;
+        }
+
+        // Passed obstacle
+        if (!ob.passed && ob.x + ob.width < player.x) {
+          ob.passed = true;
+          score++;
+        }
+
+        // Remove off-screen
+        if (ob.x + ob.width < 0) {
+          obstacles.splice(i, 1);
+        }
+      }
+    }
+
+    function drawGround() {
+      ctx.fillStyle = '#0b3d91';
+      ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
+
+      ctx.strokeStyle = '#ffffff33';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, groundY);
+      ctx.lineTo(canvas.width, groundY);
+      ctx.stroke();
+    }
+
+    function drawPlayer() {
+      ctx.fillStyle = player.color;
+      ctx.fillRect(player.x, player.y, player.width, player.height);
+    }
+
+    function drawObstacles() {
+      obstacles.forEach((ob) => {
+        ctx.fillStyle = ob.color;
+        ctx.beginPath();
+        ctx.moveTo(ob.x, ob.y + ob.height);
+        ctx.lineTo(ob.x + ob.width / 2, ob.y);
+        ctx.lineTo(ob.x + ob.width, ob.y + ob.height);
+        ctx.closePath();
+        ctx.fill();
+      });
+    }
+
+    function drawScore() {
+      ctx.fillStyle = '#fff';
+      ctx.font = '18px Arial';
+      ctx.fillText('Score: ' + score, 10, 25);
+    }
+
+    function drawGameOver() {
+      if (!gameOver) return;
+      ctx.fillStyle = 'rgba(0,0,0,0.6)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#fff';
+      ctx.font = '32px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2 - 10);
+      ctx.font = '20px Arial';
+      ctx.fillText('Score: ' + score, canvas.width / 2, canvas.height / 2 + 20);
+      ctx.fillText('Press SPACE or click to restart', canvas.width / 2, canvas.height / 2 + 50);
+      ctx.textAlign = 'left';
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      update();
+      drawGround();
+      drawPlayer();
+      drawObstacles();
+      drawScore();
+      drawGameOver();
+
+      if (!gameOver) {
+        requestAnimationFrame(loop);
+      }
+    }
+
+    // Start
+    loop();
+  </script>
+</body>
+</html>
