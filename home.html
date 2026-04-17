@@ -1,231 +1,199 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>¡Jacob's Master Gaming Hub!</title>
+<meta charset="UTF-8">
+<title>¡Jacob's Master Gaming Hub!</title>
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a4fa3, #2f6fd1, #4a8df0);
+    color: white;
+    display: flex;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1a4fa3, #2f6fd1, #4a8df0);
-      color: white;
-      display: flex;
-    }
+/* SIDEBAR */
+#sidebar {
+    width: 180px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    padding-top: 20px;
+    border-right: 2px solid #4FE3E9;
+    box-shadow: 0 0 12px #4FE3E9, 0 0 25px #4FE3E9, inset 0 0 12px #4FE3E9;
+}
+#sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.side-link {
+    display: block;
+    padding: 10px 16px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.side-link:hover { background: rgba(255,255,255,0.15); }
 
-    /* SIDEBAR */
-    #sidebar {
-      width: 180px;
-      height: 100vh;
-      position: fixed;
-      left: 0;
-      top: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      padding-top: 20px;
-      border-right: 2px solid #4FE3E9;
-      box-shadow:
-        0 0 12px #4FE3E9,
-        0 0 25px #4FE3E9,
-        inset 0 0 12px #4FE3E9;
-    }
+/* MAIN CONTENT */
+#main { margin-left: 180px; width: calc(100% - 180px); }
 
-    #sidebar h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
+header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid #4FE3E9;
+    box-shadow: 0 0 12px #4FE3E9;
+}
 
-    .side-link {
-      display: block;
-      padding: 10px 16px;
-      font-size: 16px;
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+/* WELCOME BOX */
+.welcome-box {
+    margin: 20px auto;
+    width: 80%;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #4FE3E9;
+    box-shadow: 0 0 12px #4FE3E9;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+    backdrop-filter: blur(4px);
+}
 
-    .side-link:hover {
-      background: rgba(255,255,255,0.15);
-    }
+/* CREDIT BOX */
+.credit-box {
+    margin: 10px auto 25px auto;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #4FE3E9;
+    box-shadow: 0 0 12px #4FE3E9;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    backdrop-filter: blur(4px);
+}
 
-    /* MAIN CONTENT */
-    #main {
-      margin-left: 180px;
-      width: calc(100% - 180px);
-    }
+/* GAME VIEWER */
+#game-frame-container {
+    width: 100%;
+    height: 600px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    border-top: 3px solid #4FE3E9;
+    box-shadow: 0 0 12px #4FE3E9;
+    display: none;
+    position: relative;
+}
+#game-frame { width: 100%; height: 100%; border: none; }
 
-    header {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 20px;
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(6px);
-      border-bottom: 2px solid #4FE3E9;
-      box-shadow: 0 0 12px #4FE3E9;
-    }
+#fullscreen-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 18px;
+    background: #1e88e5;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+#fullscreen-btn:hover { background: #1565c0; }
 
-    /* WELCOME BOX */
-    .welcome-box {
-      margin: 20px auto;
-      width: 80%;
-      background: rgba(0, 0, 0, 0.55);
-      padding: 20px;
-      border-radius: 10px;
-      border: 2px solid #4FE3E9;
-      box-shadow: 0 0 12px #4FE3E9;
-      font-size: 18px;
-      line-height: 1.5;
-      text-align: center;
-      backdrop-filter: blur(4px);
-    }
+/* SEARCH */
+#search-container { text-align: center; margin: 20px; }
+#search {
+    width: 60%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
 
-    /* CREDIT BOX */
-    .credit-box {
-      margin: 10px auto 25px auto;
-      width: 70%;
-      background: rgba(0, 0, 0, 0.55);
-      padding: 15px;
-      border-radius: 10px;
-      border: 2px solid #4FE3E9;
-      box-shadow: 0 0 12px #4FE3E9;
-      font-size: 20px;
-      text-align: center;
-      font-weight: bold;
-      backdrop-filter: blur(4px);
-    }
+/* SECTIONS */
+.section-title {
+    font-size: 26px;
+    margin: 20px;
+    border-left: 5px solid #4FE3E9;
+    padding-left: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 12px #4FE3E9;
+}
+.suggested-label {
+    font-size: 18px;
+    margin: 0 20px;
+    opacity: 0.85;
+    font-style: italic;
+}
 
-    /* GAME VIEWER */
-    #game-frame-container {
-      width: 100%;
-      height: 600px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      border-top: 3px solid #4FE3E9;
-      box-shadow: 0 0 12px #4FE3E9;
-      display: none;
-      position: relative;
-    }
-
-    #game-frame {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    #fullscreen-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      padding: 10px 18px;
-      background: #1e88e5;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    #fullscreen-btn:hover {
-      background: #1565c0;
-    }
-
-    /* SEARCH */
-    #search-container {
-      text-align: center;
-      margin: 20px;
-    }
-
-    #search {
-      width: 60%;
-      max-width: 500px;
-      padding: 12px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-    }
-
-    /* SECTIONS */
-    .section-title {
-      font-size: 26px;
-      margin: 20px;
-      border-left: 5px solid #4FE3E9;
-      padding-left: 10px;
-      background: rgba(0, 0, 0, 0.4);
-      display: inline-block;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 12px #4FE3E9;
-    }
-
-    .suggested-label {
-      font-size: 18px;
-      margin: 0 20px;
-      opacity: 0.85;
-      font-style: italic;
-    }
-
-    /* GAME GRID */
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .game-card {
-      background: rgba(0, 0, 0, 0.55);
-      padding: 15px;
-      border-radius: 10px;
-      border: 2px solid #4FE3E9;
-      box-shadow: 0 0 12px #4FE3E9;
-      backdrop-filter: blur(4px);
-    }
-
-    .game-title {
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .play-btn {
-      display: block;
-      margin: 0 auto 10px auto;
-      padding: 8px 14px;
-      font-size: 14px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      background: #1e88e5;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .play-btn:hover {
-      background: #1565c0;
-    }
-  </style>
+/* GAME GRID */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.game-card {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #4FE3E9;
+    box-shadow: 0 0 12px #4FE3E9;
+    backdrop-filter: blur(4px);
+}
+.game-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.play-btn {
+    display: block;
+    margin: 0 auto 10px auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #1e88e5;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+.play-btn:hover { background: #1565c0; }
+</style>
 </head>
+
 <body>
 
 <!-- SIDEBAR -->
 <div id="sidebar">
-  <h2>Categories</h2>
-  <a class="side-link" href="#topgames">🏁 Top Games</a>
-  <a class="side-link" href="#featured">🔥 Featured</a>
-  <a class="side-link" href="#arcade2">🎯 Arcade II</a>
-  <a class="side-link" href="#arcade3">🚓 Arcade III</a>
-  <a class="side-link" href="#arcade4">🚗 Arcade IV</a>
+    <h2>Categories</h2>
+    <a class="side-link" href="#topgames">🏁 Top Games</a>
+    <a class="side-link" href="#featured">🔥 Featured</a>
+    <a class="side-link" href="#arcade2">🎯 Arcade II</a>
+    <a class="side-link" href="#arcade3">🚓 Arcade III</a>
+    <a class="side-link" href="#arcade4">🚗 Arcade IV</a>
 </div>
 
 <!-- MAIN CONTENT -->
@@ -235,109 +203,102 @@
 
 <!-- WELCOME BOX -->
 <div class="welcome-box">
-  Great!! You made it here!! I'm so happy that you were able to find this amazing website with lots of fun games to play that are all unblocked.
-  <br><br>
-  If you want to help add games, click this 
-  <a href="https://forms.gle/YKM6UDoVU3dX52AQ6" target="_blank" style="color:#4FE3E9; font-weight:bold; text-decoration:underline;">
-    link
-  </a> 
-  to fill out a Google form to suggest games.
-  <br><br>
-  If I successfully add your game to the website, you will be added to the section of people who suggested games.
+    Great!! You made it here!! I'm so happy that you were able to find this amazing website with lots of fun games to play that are all unblocked.
+    <br><br>
+    If you want to help add games, click this
+    <a href="https://forms.gle/YKM6UDoVU3dX52AQ6" target="_blank" style="color:#4FE3E9; font-weight:bold; text-decoration:underline;">link</a>
+    to fill out a Google form to suggest games.
+    <br><br>
+    If I successfully add your game to the website, you will be added to the section of people who suggested games.
 </div>
 
 <!-- CREDIT BOX -->
 <div class="credit-box">
-  Website created, made, and edited by Jacob Swisher!!!
+    Website created, made, and edited by Jacob Swisher!!!
 </div>
 
 <!-- GAME VIEWER -->
 <div id="game-frame-container">
-  <iframe 
-    id="game-frame"
-    allow="fullscreen"
-    allowfullscreen
-    webkitallowfullscreen
-    mozallowfullscreen>
-  </iframe>
-
-  <button id="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
+    <iframe id="game-frame" allow="fullscreen" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+    <button id="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
 </div>
 
 <script>
-  function loadGame(url) {
+function loadGame(url) {
     const frameContainer = document.getElementById("game-frame-container");
     const frame = document.getElementById("game-frame");
-
     frame.src = url;
     frameContainer.style.display = "block";
-
     window.scrollTo({ top: frameContainer.offsetTop - 20, behavior: "smooth" });
-  }
-
-  function toggleFullscreen() {
+}
+function toggleFullscreen() {
     const frame = document.getElementById("game-frame");
-
     if (frame.requestFullscreen) frame.requestFullscreen();
     else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
     else if (frame.mozRequestFullScreen) frame.mozRequestFullScreen();
     else if (frame.msRequestFullscreen) frame.msRequestFullscreen();
-  }
+}
 </script>
 
 <!-- TOP GAMES -->
 <h2 id="topgames" class="section-title">🏁 Top Games</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="PolyTrack">
-    <div class="game-title">PolyTrack</div>
-    <button class="play-btn" onclick="loadGame('https://poly-trackonline.github.io/')">Play</button>
-  </div>
+    <div class="game-card" data-name="PolyTrack">
+        <div class="game-title">PolyTrack</div>
+        <button class="play-btn" onclick="loadGame('https://poly-trackonline.github.io/')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Yohoho.io">
-    <div class="game-title">Yohoho.io</div>
-    <button class="play-btn" onclick="loadGame('https://purepro4573.github.io/yohoho/')">Play</button>
-  </div>
+    <div class="game-card" data-name="Yohoho.io">
+        <div class="game-title">Yohoho.io</div>
+        <button class="play-btn" onclick="loadGame('https://purepro4573.github.io/yohoho/')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Basket Random">
-    <div class="game-title">Basket Random</div>
-    <button class="play-btn" onclick="loadGame('https://google-pacman.github.io/play/basket-random.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Basket Random">
+        <div class="game-title">Basket Random</div>
+        <button class="play-btn" onclick="loadGame('https://google-pacman.github.io/play/basket-random.html')">Play</button>
+    </div>
+
+    <!-- ⭐ NEW GAME ADDED -->
+    <div class="game-card" data-name="BasketBros">
+        <div class="game-title">BasketBros</div>
+        <button class="play-btn" onclick="loadGame('https://basketbros-game.github.io/')">Play</button>
+    </div>
 
 </div>
 
 <p class="suggested-label">
-  These people suggested games for the website!!!: Alex, Franklin, Jake.
+    These people suggested games for the website!!!: Alex, Franklin, Jake.
 </p>
 
 <!-- FEATURED -->
 <h2 id="featured" class="section-title">🔥 Featured Games</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Slope">
-    <div class="game-title">Slope</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-450.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Slope">
+        <div class="game-title">Slope</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-450.html')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Two Player Slope">
-    <div class="game-title">Two Player Slope</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-800.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Two Player Slope">
+        <div class="game-title">Two Player Slope</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-800.html')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Tag">
-    <div class="game-title">Tag</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-633.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Tag">
+        <div class="game-title">Tag</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-633.html')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Stickman Hook">
-    <div class="game-title">Stickman Hook</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-406.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Stickman Hook">
+        <div class="game-title">Stickman Hook</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-406.html')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Off-Road Cargo Rain Simulator">
-    <div class="game-title">Off-Road Cargo Rain Simulator</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-313.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Off-Road Cargo Rain Simulator">
+        <div class="game-title">Off-Road Cargo Rain Simulator</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-313.html')">Play</button>
+    </div>
 
 </div>
 
@@ -345,25 +306,25 @@
 <h2 id="arcade2" class="section-title">🎯 Arcade II</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Madalin Stunt Cars 3">
-    <div class="game-title">Madalin Stunt Cars 3</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-1095.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Madalin Stunt Cars 3">
+        <div class="game-title">Madalin Stunt Cars 3</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-1095.html')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Drift Hunters">
-    <div class="game-title">Drift Hunters</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-554.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Drift Hunters">
+        <div class="game-title">Drift Hunters</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-554.html')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Moto X3M">
-    <div class="game-title">Moto X3M</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-501.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Moto X3M">
+        <div class="game-title">Moto X3M</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-501.html')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Burnin Rubber 5 XS">
-    <div class="game-title">Burnin' Rubber 5 XS</div>
-    <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-726.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Burnin Rubber 5 XS">
+        <div class="game-title">Burnin' Rubber 5 XS</div>
+        <button class="play-btn" onclick="loadGame('https://shortrideonline.github.io/go/class-726.html')">Play</button>
+    </div>
 
 </div>
 
@@ -371,27 +332,25 @@
 <h2 id="arcade3" class="section-title">🚓 Arcade III</h2>
 <div class="game-grid">
 
-  <!-- REPLACED POLICE CHASE WITH CARS GAME -->
-  <div class="game-card" data-name="Cars Game">
-    <div class="game-title">Cars Game</div>
-    <button class="play-btn" onclick="loadGame('https://jchabin.github.io/cars/')">Play</button>
-  </div>
+    <div class="game-card" data-name="Cars Game">
+        <div class="game-title">Cars Game</div>
+        <button class="play-btn" onclick="loadGame('https://jchabin.github.io/cars/')">Play</button>
+    </div>
 
-  <!-- NEW YOUTUBE CARD -->
-  <div class="game-card" data-name="YouTube">
-    <div class="game-title">YouTube</div>
-    <button class="play-btn" onclick="loadGame('https://youtube.com/')">Play</button>
-  </div>
+    <div class="game-card" data-name="YouTube">
+        <div class="game-title">YouTube</div>
+        <button class="play-btn" onclick="loadGame('https://youtube.com/')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Escape Road">
-    <div class="game-title">Escape Road</div>
-    <button class="play-btn" onclick="loadGame('https://escaperoadx.github.io/')">Play</button>
-  </div>
+    <div class="game-card" data-name="Escape Road">
+        <div class="game-title">Escape Road</div>
+        <button class="play-btn" onclick="loadGame('https://escaperoadx.github.io/')">Play</button>
+    </div>
 
-  <div class="game-card" data-name="Escape Road City">
-    <div class="game-title">Escape Road City</div>
-    <button class="play-btn" onclick="loadGame('https://escaperoadx.github.io/')">Play</button>
-  </div>
+    <div class="game-card" data-name="Escape Road City">
+        <div class="game-title">Escape Road City</div>
+        <button class="play-btn" onclick="loadGame('https://escaperoadx.github.io/')">Play</button>
+    </div>
 
 </div>
 
@@ -399,30 +358,32 @@
 <h2 id="arcade4" class="section-title">🚗 Arcade IV</h2>
 <div class="game-grid">
 
-  <div class="game-card" data-name="Car Games Collection">
-    <div class="game-title">Car Games Collection</div>
-    <button class="play-btn" onclick="loadGame('https://githubgames.gitlab.io/category/car.html')">Play</button>
-  </div>
+    <div class="game-card" data-name="Car Games Collection">
+        <div class="game-title">Car Games Collection</div>
+
+        <!-- ⭐ UPDATED LINK -->
+        <button class="play-btn" onclick="loadGame('https://car.js.org/')">Play</button>
+    </div>
 
 </div>
 
 <!-- SEARCH BAR -->
 <div id="search-container">
-  <input type="text" id="search" placeholder="Search for a game...">
+    <input type="text" id="search" placeholder="Search for a game...">
 </div>
 
 <script>
-  function filterGames() {
+function filterGames() {
     const query = document.getElementById("search").value.toLowerCase();
     const cards = document.querySelectorAll(".game-card");
 
     cards.forEach(card => {
-      const name = card.getAttribute("data-name").toLowerCase();
-      card.style.display = name.includes(query) ? "block" : "none";
+        const name = card.getAttribute("data-name").toLowerCase();
+        card.style.display = name.includes(query) ? "block" : "none";
     });
-  }
+}
 
-  document.getElementById("search").addEventListener("input", filterGames);
+document.getElementById("search").addEventListener("input", filterGames);
 </script>
 
 </div>
